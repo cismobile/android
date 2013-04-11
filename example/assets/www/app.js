@@ -1,38 +1,37 @@
+/*
+    This file is generated and updated by Sencha Cmd. You can edit this file as
+    needed for your application, but these edits will have to be merged by
+    Sencha Cmd when it performs code generation tasks such as generating new
+    models, controllers or views and when running "sencha app upgrade".
+
+    Ideally changes to this file would be limited and most work would be done
+    in other places (such as Controllers). If Sencha Cmd cannot merge your
+    changes and its generated code, it will produce a "merge conflict" that you
+    will need to resolve manually.
+*/
+
+// DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
+//@require @packageOverrides
+
+//<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'cis': 'app'
+    'CIS': 'app'
 });
+//</debug>
 
 Ext.application({
-    name: 'cis',
+    name: 'CIS',
 
     requires: [
         'Ext.MessageBox'
     ],
 
     views: [
-		'Login',
-		'Main',
-        'CountryList',
-		'Country',
-	],
-	
-    controllers: [
-        'Login',
-        'countryList'
+        'Main'
     ],
 
-	models: [
-		'CategoryList',
-		'CountryList'
-	],
-	
-	stores: [
-		'CategoryList',
-		'CountryList'
-	],
-    
-	icon: {
+    icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
         '114': 'resources/icons/Icon@2x.png',
@@ -50,30 +49,419 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
-    launch: function () {
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
-        //Ext.Viewport.add(Ext.create('cis.view.Login'));
-
-        Ext.Viewport.add([{
-				xtype: 'loginview'
-			},{
-				xtype: 'mainview'
-			},{
-                xtype: 'countrylist'
-            }
-        ]);
-    },
-
-    onUpdated: function () {
-        Ext.Msg.confirm(
-            "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?", function (buttonId) {
-            if (buttonId === 'yes') {
-                window.location.reload();
+    launch: function() {
+         Ext.define('ListItem', {
+            extend: 'Ext.data.Model',
+            config: {
+                fields: ['text']
             }
         });
+
+        var treeStore = Ext.create('Ext.data.TreeStore', {
+            model: 'ListItem',
+            defaultRootProperty: 'items',
+            root: {
+                items: [{
+                    text: 'Drinks',
+                    items: [{
+                        text: 'Water',
+                        items: [{
+                            text: 'Still',
+                            leaf: true
+                        }, {
+                            text: 'Sparkling',
+                            leaf: true
+                        }]
+                    }, {
+                        text: 'Soda',
+                        leaf: true
+                    }]
+                }, {
+                    text: 'Snacks',
+                    items: [{
+                        text: 'Nuts',
+                        leaf: true
+                    }, {
+                        text: 'Pretzels',
+                        leaf: true
+                    }, {
+                        text: 'Wasabi Peas',
+                        leaf: true
+                    }]
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                },{
+                    text: 'Snacks'
+                }]
+            }
+        });
+
+        var detailContainer = Ext.create('Ext.Container', {
+            layout: 'card',
+            flex: 1
+        });
+
+        var nestedList = Ext.create('Ext.NestedList', {
+            store: treeStore,
+            detailContainer: detailContainer,
+            detailCard: true,
+            listeners: {
+                leafitemtap: function (nestedList, list, index, target, record) {
+                    var detailCard = nestedList.getDetailCard();
+                    detailCard.setHtml('You selected: ' + record.get('text'));
+                }
+            },
+            flex: 1
+        });
+
+        Ext.Viewport.add({
+            layout: 'hbox',
+            items: [
+            nestedList, detailContainer]
+        });
+    },
+
+    onUpdated: function() {
+        Ext.Msg.confirm(
+            "Application Update",
+            "This application has just successfully been updated to the latest version. Reload now?",
+            function(buttonId) {
+                if (buttonId === 'yes') {
+                    window.location.reload();
+                }
+            }
+        );
     }
 });

@@ -1,77 +1,50 @@
-Ext.define('cis.view.Main', {
+Ext.define('CIS.view.Main', {
     extend: 'Ext.tab.Panel',
-	alias: "widget.mainview",
+    xtype: 'main',
     requires: [
         'Ext.TitleBar',
-		'Ext.carousel.Carousel','Ext.dataview.List'
+        'Ext.Video'
     ],
     config: {
         tabBarPosition: 'bottom',
 
         items: [
-			{
-                title: 'News',
+            {
+                title: 'Welcome',
                 iconCls: 'home',
-                
+
+                styleHtmlContent: true,
                 scrollable: true,
-				styleHtmlContent: true,
-				
+
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
-                    title: 'Home',
-					items: [{
-						xtype: 'toolbar',
-						docked: 'top'
-					}]
+                    title: 'Welcome to Sencha Touch 2'
                 },
-				
-				html: [
-					'<img src="http://staging.sencha.com/img/sencha.png" />',
-					'<h1>Welcome to Sencha Touch</h1>',
-					"<p>You're creating the Getting Started app. This demonstrates how ",
-					"to use tabs, lists and forms to create a simple app</p>",
-					'<h2>Sencha Touch (2.0.0)</h2>'
-				].join("")
+
+                html: [
+                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
+                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
+                    "and refresh to change what's rendered here."
+                ].join("")
             },
             {
-                store: 'CountryList',
-				title: 'Cart',
-				iconCls: 'star',
-				xtype: 'countrylist',
-				itemTpl: '{f_code}',
-				flex: 1
-            },{
-				title: 'My Acc',
-				iconCls: 'user',
-				items: [
-					{
-						docked: 'top',
-						xtype: 'titlebar',
-						title: 'My Account'
-					}
-				]
-			},{
-				title: 'Events',
-				iconCls: 'search',
-				items: [
-					{
-						docked: 'top',
-						xtype: 'titlebar',
-						title: 'Events'
-					}
-				]
-			},{
-				title: 'More',
-				iconCls: 'more',
-				items: [
-					{
-						docked: 'top',
-						xtype: 'titlebar',
-						title: 'More'
-					}
-				]
-			}
+                title: 'Get Started',
+                iconCls: 'action',
+
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'Getting Started'
+                    },
+                    {
+                        xtype: 'video',
+                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
+                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
+                    }
+                ]
+            }
         ]
     }
 });
