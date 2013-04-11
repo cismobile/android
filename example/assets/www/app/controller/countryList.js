@@ -7,19 +7,22 @@ Ext.define('cis.controller.countryList', {
         },
         control: {
             'countrylist list':{
-				itemtap: 'showPost'
+				//itemtap: 'showPost',
+				disclosure: function(list, record, node, index, event, eOpts) {    
+					event.stopEvent();
+				}
 			}
         }
     },
     
-	showPost: function(list,index,element,record){
-		this.getCountrylist().push({
+	/*showPost: function(list,index,element,record){
+		/*this.getCountrylist().push({
 			store: 'CategoryList',
 			title: 'Category List',
 			iconCls: 'star',
 			xtype: 'list',
-			itemTpl: '{categories_name}',
-			flex: 1
+			itemTpl: '{categories_name}'
+			//flex: 1
 		})
-	}
+	}*/
 });

@@ -49,7 +49,7 @@ Ext.define('cis.controller.Login', {
         });
 		
 		var http = new XMLHttpRequest();
-		var params = "f_email="+username+"&f_password="+password+"";
+		var params = "f_email="+'MY000000'+"&f_password="+'admin'+"";
 			http.open("POST", "http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login", true);
 			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			http.setRequestHeader("Content-length", params.length);
