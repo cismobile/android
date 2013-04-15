@@ -1,43 +1,38 @@
-/*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
-
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
-
-// DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
-//@require @packageOverrides
-
-//<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'mobileV1': 'app'
+    'cis': 'app'
 });
-//</debug>
 
 Ext.application({
-    name: 'mobileV1',
+    name: 'cis',
 
     requires: [
         'Ext.MessageBox'
     ],
 
     views: [
-        'Main',
 		'Login',
-		'AfterLogin'
-    ],
-	
-	controllers: [
-		'Login'
+		'Main',
+        'CountryList',
+		'Country',
 	],
+	
+    controllers: [
+        'Login',
+        'countryList'
+    ],
 
-    icon: {
+	models: [
+		'CategoryList',
+		'CountryList'
+	],
+	
+	stores: [
+		'CategoryList',
+		'CountryList'
+	],
+    
+	icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
         '114': 'resources/icons/Icon@2x.png',
@@ -55,30 +50,45 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
-    launch: function() {
+    launch: function () {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        // Initialize the main view
+		var db = openDatabase('mobileDB', '1.0', 'Test DB', 2 * 1024 * 1024);
+		
+		db.transaction(function (tx) {  
+			tx.executeSql('Drop table em_company');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS em_company (id PRIMARY KEY, f_code VARCHAR(20),f_name VARCHAR(30))');
+		});
+		
+		Ext.getStore('CountryList').on('load', function (store, records, successful, operation, eOpts) {         
+			for (var i = 0; i < records.length; i++) {
+				var e = records[i];
+				(function(e) {
+					db.transaction(function (tx) {  
+							tx.executeSql('INSERT INTO em_company (f_code) VALUES (?)',  [e.get('f_code')]);
+					});
+				  })(e);
+			}
+		});
+
         Ext.Viewport.add([{
-				xtype: 'mainview'
-			},{
 				xtype: 'loginview'
 			},{
-				xtype: 'afterloginview'
-			}
+				xtype: 'mainview'
+			},{
+                xtype: 'countrylist'
+            }
         ]);
     },
 
-    onUpdated: function() {
+    onUpdated: function () {
         Ext.Msg.confirm(
             "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?",
-            function(buttonId) {
-                if (buttonId === 'yes') {
-                    window.location.reload();
-                }
+            "This application has just successfully been updated to the latest version. Reload now?", function (buttonId) {
+            if (buttonId === 'yes') {
+                window.location.reload();
             }
-        );
+        });
     }
 });
