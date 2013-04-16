@@ -13,21 +13,23 @@ Ext.application({
     views: [
 		'Login',
 		'Main',
-        'CategoryList',
-		'Categories'
+        'CountryList',
+		'Country',
 	],
 	
     controllers: [
         'Login',
-        'productList'
+        'countryList'
     ],
 
 	models: [
-		'CategoryList'
+		'CategoryList',
+		'CountryList'
 	],
 	
 	stores: [
-		'CategoryList'
+		'CategoryList',
+		'CountryList'
 	],
     
 	icon: {
@@ -52,15 +54,30 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        // Initialize the main view
-        //Ext.Viewport.add(Ext.create('cis.view.Login'));
+		var db = openDatabase('mobileDB', '1.0', 'Test DB', 2 * 1024 * 1024);
+		
+		db.transaction(function (tx) {  
+			tx.executeSql('Drop table em_company');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS em_company (id PRIMARY KEY, f_code VARCHAR(20),f_name VARCHAR(30))');
+		});
+		
+		Ext.getStore('CountryList').on('load', function (store, records, successful, operation, eOpts) {         
+			for (var i = 0; i < records.length; i++) {
+				var e = records[i];
+				(function(e) {
+					db.transaction(function (tx) {  
+							tx.executeSql('INSERT INTO em_company (f_code) VALUES (?)',  [e.get('f_code')]);
+					});
+				  })(e);
+			}
+		});
 
         Ext.Viewport.add([{
-				xtype: 'mainview'
-			},{
 				xtype: 'loginview'
 			},{
-                xtype: 'categorylist'
+				xtype: 'mainview'
+			},{
+                xtype: 'countrylist'
             }
         ]);
     },

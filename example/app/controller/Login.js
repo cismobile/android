@@ -5,13 +5,13 @@ Ext.define('cis.controller.Login', {
             mainView: 'mainview',
 			realmainView: 'realmainview',
 			loginView: 'loginview',
-            categoryListView: 'categorylist'
+            countryListView: 'countrylist'
         },
         control: {
             loginView: {
                 signInCommand: 'onSignInCommand'
             },
-            categoryListView: {
+            countryListView: {
                 onSignOffCommand: 'onSignOffCommand'
             }
         }
@@ -73,7 +73,7 @@ Ext.define('cis.controller.Login', {
     signInSuccess: function () {
         console.log('Signed in.');
 		var loginView = this.getLoginView();
-		//categoryListView = this.getCategoryListView();
+		//countryListView = this.getCategoryListView();
 		mainView = this.getMainView();
 		
         loginView.setMasked(false);

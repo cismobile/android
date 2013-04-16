@@ -4,15 +4,11 @@ Ext.define('cis.store.CategoryList', {
     config: {
         model: 'cis.model.CategoryList',
         autoLoad: true,
-        sorters: 'categories_name',
-        /*grouper: {
-            groupFn: function(record) {
-                return record.get('categories_name')[0];
-            }
-        },*/
+        sorters: 'f_categories',
         proxy: {
             type: 'jsonp',
-			url: 'http://bangsar.publicvm.com/solucisv3_dev/index.php/api2/Product/CategoryList?language_id=1',
+			url: 'http://bangsar.publicvm.com/solucisv3_dev/index.php/api2/Product/CategoryList',
+			extraParams: {language_id:1},
 			callbackKey: 'callback',
 			reader: {
 				rootProperty: 'data'

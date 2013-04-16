@@ -1,9 +1,9 @@
-Ext.define('cis.controller.productList', {
+Ext.define('cis.controller.categoryList', {
     extend: 'Ext.app.Controller',
     
     config: {
         refs: {
-            categorylist: 'categorylist'
+            categorylist: 'categoryList'
         },
         control: {
             'categorylist list':{
@@ -14,8 +14,8 @@ Ext.define('cis.controller.productList', {
     
 	showPost: function(list,index,element,record){
 		this.getCategorylist().push({
-			xtype: 'panel',
-			title: 'Product List' + ' - ' + record.get('categories_name'),
+			xtype: 'list',
+			title: 'Category list',
 			html: record.get('categories_name'),
 			scrollable: true,
 			styleHtmlContent: true

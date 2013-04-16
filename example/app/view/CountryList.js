@@ -1,12 +1,11 @@
 Ext.define('cis.view.CountryList', {
     extend: 'Ext.navigation.View',
-    //alias: "widget.categorylist",
-	xtype: 'categorylist',
+	xtype: 'countrylist',
 	requires: ['Ext.data.proxy.JsonP','Ext.dataview.List'],
     config: {
-		store: 'CategoryList',
+		store: 'CountryList',
         items: [
-			{ xtype: 'Categories' }
+			{ xtype: 'Country' }
         ]
     }
 });
