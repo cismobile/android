@@ -11,10 +11,13 @@ Ext.application({
     ],
 
     views: [
-		'Main'
+		'Main',
+		'Login',
+		'AfterLogin'
 	],
 	
     controllers: [
+		'Login'
     ],
 
 	models: [

@@ -41,6 +41,7 @@ Ext.define('mobileV1.view.Login', {
                     }, {
 						xtype: 'togglefield',
 						name: 'remember_me',
+						itemId: 'remember_me',
 						label: 'Remember me?',
 						value: 0,
 						labelWidth: 150
@@ -72,9 +73,11 @@ Ext.define('mobileV1.view.Login', {
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),
+			rememberField = me.down('#remember_me'),
             label = me.down('#signInFailedLabel'),
             username = usernameField.getValue(),
-            password = passwordField.getValue();
+            password = passwordField.getValue(),
+			remember = rememberField.getValue();
 
         label.hide();
 
@@ -84,7 +87,7 @@ Ext.define('mobileV1.view.Login', {
 
             label.setHtml('');
 
-            me.fireEvent('signInCommand', me, username, password);
+            me.fireEvent('signInCommand', me, username, password,remember);
 
             usernameField.setValue('');
             passwordField.setValue('');

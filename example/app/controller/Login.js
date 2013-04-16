@@ -30,7 +30,7 @@ Ext.define('mobileV1.controller.Login', {
         return { type: 'slide', direction: 'right' };
     },
 	
-    onSignInCommand: function (view, username, password) {
+    onSignInCommand: function (view, username, password,remember) {
 		if(Ext.device.Connection.isOnline() === true){
 			console.log('Username: ' + username + '\n' + 'Password: ' + password);
 	 
@@ -63,6 +63,9 @@ Ext.define('mobileV1.controller.Login', {
 					}else{
 						//me.sessionToken = http.responseText;
 						//Ext.getStore('Session');
+						if(remember == 1){
+							localStorage.status = 1;
+						}
 						me.signInSuccess();     
 					}
 				}

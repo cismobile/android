@@ -19,27 +19,21 @@ Ext.define('mobileV1.view.Main', {
                     xtype: 'titlebar',
                     title: 'Home'
                 }
-            }/*, {
+            }, {
                 title: 'My Acc',
                 iconCls: 'user',
 				itemId: 'mainAcc',
 				xtype: 'afterloginview'
-            }, {
-				title: 'Events',
-                iconCls: 'star',
-				xtype: 'loginview'
-			}*/
+            }
         ],
 		listeners: {
 			activeitemchange: function(r,value,oldvalue,eOpts){
 				if(this.getActiveItem().getItemId() == 'mainAcc'){
 					if(localStorage.status === undefined){
 						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},{ type: 'slide', direction: 'down' });
-					}else{
-						var view = Ext.Viewport.add({xtype: 'afterloginview'});
+						Ext.Viewport.setActiveItem(view);
+						view.show(); //This is additionally done to fire showAnimation
 					}
-					Ext.Viewport.setActiveItem(view);
-					view.show(); //This is additionally done to fire showAnimation
 				}
 			}
 		}
