@@ -14,8 +14,7 @@ Ext.application({
 		'Login',
 		'Main',
         'CategoryList',
-		'Categories',
-		'AfterLogin'
+		'Categories'
 	],
 	
     controllers: [
@@ -62,9 +61,7 @@ Ext.application({
 				xtype: 'loginview'
 			},{
                 xtype: 'categorylist'
-            },{
-				xtype: 'afterloginview'
-			}
+            }
         ]);
     },
 
