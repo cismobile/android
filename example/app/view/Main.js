@@ -35,6 +35,13 @@ Ext.define('mobileV1.view.Main', {
 						view.show(); //This is additionally done to fire showAnimation
 					}
 				}
+			},
+			activate: function(){
+				if(this.getActiveItem().getItemId() == 'mainAcc'){
+					if(localStorage.status === undefined){
+						
+					}
+				}
 			}
 		}
     }

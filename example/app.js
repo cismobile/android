@@ -50,6 +50,10 @@ Ext.application({
 
         Ext.Viewport.add([{
 				xtype: 'mainview'
+			},{
+				xtype: 'loginview'
+			},{
+				xtype: 'afterloginview'
 			}
         ]);
     },

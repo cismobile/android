@@ -1,14 +1,13 @@
 Ext.define('mobileV1.view.Login', {
     extend: 'Ext.form.Panel',
-    //xtype: 'loginview',
-	alias: "widget.loginview",
+    xtype: 'loginview',
     requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
     config: {
         title: 'Login',
         items: [{
                 xtype: 'image',
                 src: Ext.Viewport.getOrientation() == 'portrait' ? 'resources/image/login.png' : 'resources/image/login.png',
-                style: Ext.Viewport.getOrientation() == 'portrait' ? 'width:128px;height:128px;margin:auto;margin-top:10px' : 'width:40px;height:40px;margin:auto;margin-top:10px'
+                style: Ext.Viewport.getOrientation() == 'portrait' ? 'width:128px;height:128px;margin:auto;margin-top:20px' : 'width:40px;height:40px;margin:auto;margin-top:20px'
             }, {
                 xtype: 'label',
                 html: 'Login failed. Please enter the correct credentials.',
@@ -19,7 +18,7 @@ Ext.define('mobileV1.view.Login', {
                 style: 'color:#990000;margin:5px 0px;'
             }, {
                 xtype: 'fieldset',
-                style: 'margin-top:10px',
+                style: 'margin-top:30px',
                 items: [{
                         xtype: 'textfield',
                         placeHolder: 'Username',

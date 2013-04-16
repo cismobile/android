@@ -79,14 +79,15 @@ Ext.define('mobileV1.controller.Login', {
     signInSuccess: function () {
         console.log('Signed in.');
 		var loginView = this.getLoginView();
-		//countryListView = this.getCategoryListView();
+		var mainView = this.getMainView();
 		afterLoginView = this.getAfterLoginView();
 		
         loginView.setMasked(false);
 		//loginView.removeAll();
 		//loginView.setActiveItem('afterloginview');
 		//loginView.setItems('mainAcc');
-        Ext.Viewport.animateActiveItem(afterLoginView, this.getSlideLeftTransition());
+        //Ext.Viewport.animateActiveItem(afterLoginView, this.getSlideLeftTransition());
+		Ext.Viewport.add(afterLoginView);
     },
  
     singInFailure: function (message) {
