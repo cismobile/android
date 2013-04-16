@@ -30,10 +30,6 @@ Ext.application({
     views: [
         'Main'
     ],
-	
-	controllers: [
-		'Login'
-	],
 
     icon: {
         '57': 'resources/icons/Icon.png',
