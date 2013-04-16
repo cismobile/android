@@ -1,39 +1,74 @@
-Ext.define('mobileV1.view.Main', {
+Ext.define('cis.view.Main', {
     extend: 'Ext.tab.Panel',
-    xtype: 'mainview',
+	alias: "widget.mainview",
     requires: [
-        'Ext.TitleBar'
+        'Ext.TitleBar',
+		'Ext.carousel.Carousel'
     ],
     config: {
         tabBarPosition: 'bottom',
-		activeItem: 0,
-        items: [{
-                title: 'Home',
+
+        items: [
+			{
+                title: 'News',
                 iconCls: 'home',
-
-                styleHtmlContent: true,
+                
                 scrollable: true,
-
+				styleHtmlContent: true,
+				
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
-                    title: 'Home'
-                }
-            }, {
-                title: 'My Acc',
-                iconCls: 'user',
-				itemId: 'mainAcc',
-				xtype: 'loginview'
-            }
-        ],
-		listeners: {
-			activeitemchange: function(r,value,oldvalue,eOpts){
-				/*if(this.getActiveItem().getItemId() == 'mainAcc'){
-					var view = Ext.Viewport.add({xtype: 'afterloginview'});
-					Ext.Viewport.setActiveItem(view);
-					view.show(); //This is additionally done to fire showAnimation
-				}*/
+                    title: 'Home',
+					items: [{
+						xtype: 'toolbar',
+						docked: 'top'
+					}]
+                },
+				
+				html: [
+					'<img src="http://staging.sencha.com/img/sencha.png" />',
+					'<h1>Welcome to Sencha Touch</h1>',
+					"<p>You're creating the Getting Started app. This demonstrates how ",
+					"to use tabs, lists and forms to create a simple app</p>",
+					'<h2>Sencha Touch (2.0.0)</h2>'
+				].join("")
+            },
+            {
+                title: 'Shop',
+                iconCls: 'star',
+				xtype: 'categorylist'
+            },{
+				title: 'My Acc',
+				iconCls: 'user',
+				items: [
+					{
+						docked: 'top',
+						xtype: 'titlebar',
+						title: 'My Account'
+					}
+				]
+			},{
+				title: 'Events',
+				iconCls: 'search',
+				items: [
+					{
+						docked: 'top',
+						xtype: 'titlebar',
+						title: 'User'
+					}
+				]
+			},{
+				title: 'More',
+				iconCls: 'more',
+				items: [
+					{
+						docked: 'top',
+						xtype: 'titlebar',
+						title: 'User'
+					}
+				]
 			}
-		}
+        ]
     }
 });
