@@ -1,19 +1,19 @@
-Ext.define('cis.controller.Login', {
+Ext.define('mobileV1.controller.Login', {
     extend: 'Ext.app.Controller',
     config: {
         refs: {
             mainView: 'mainview',
-			realmainView: 'realmainview',
 			loginView: 'loginview',
-            countryListView: 'countrylist'
+			afterLoginView: 'afterloginview'
         },
         control: {
             loginView: {
                 signInCommand: 'onSignInCommand'
             },
-            countryListView: {
+            mainView: {
                 onSignOffCommand: 'onSignOffCommand'
-            }
+            },
+			
         }
     },
  
@@ -29,56 +29,61 @@ Ext.define('cis.controller.Login', {
     getSlideRightTransition: function () {
         return { type: 'slide', direction: 'right' };
     },
- 
+	
     onSignInCommand: function (view, username, password) {
-
-        console.log('Username: ' + username + '\n' + 'Password: ' + password);
- 
-        var me = this,
-            loginView = me.getLoginView();
+		if(Ext.device.Connection.isOnline() === true){
+			console.log('Username: ' + username + '\n' + 'Password: ' + password);
+	 
+			var me = this,
+				loginView = me.getLoginView();
+				
+	 
+			if (username.length === 0 || password.length === 0) {
+				Ext.Msg.alert('Please enter your username and password.');
+				return;
+			}
+	 
+			loginView.setMasked({
+				xtype: 'loadmask',
+				message: 'Signing In...'
+			});
 			
- 
-        if (username.length === 0 || password.length === 0) {
-			Ext.Msg.alert('Please enter your username and password.');
-            return;
-        }
- 
-        loginView.setMasked({
-            xtype: 'loadmask',
-            message: 'Signing In...'
-        });
-		
-		var http = new XMLHttpRequest();
-		var params = "f_email="+'MY000000'+"&f_password="+'admin'+"";
-			http.open("POST", "http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login", true);
-			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			http.setRequestHeader("Content-length", params.length);
-			http.setRequestHeader("Connection", "close");
-			http.onreadystatechange = function() {
-			if (http.readyState == 4 && http.status == 200) {
-				if(http.responseText == 'false1'){
-					loginView.setMasked(false);
-					Ext.Msg.alert('Login failed. Please try again later.');
-					//loginView.showSignInFailedMessage('Login failed. Please try again later.');
-				}else{
-					//me.sessionToken = http.responseText;
-					Ext.getStore('Session');
-					me.signInSuccess();     
+			var http = new XMLHttpRequest();
+			var params = "f_email="+username+"&f_password="+password+"";
+				http.open("POST", "http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login", true);
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.setRequestHeader("Content-length", params.length);
+				http.setRequestHeader("Connection", "close");
+				http.onreadystatechange = function() {
+				if (http.readyState == 4 && http.status == 200) {
+					if(http.responseText == 'false1'){
+						loginView.setMasked(false);
+						Ext.Msg.alert('Login failed. Please try again later.');
+						//loginView.showSignInFailedMessage('Login failed. Please try again later.');
+					}else{
+						//me.sessionToken = http.responseText;
+						//Ext.getStore('Session');
+						me.signInSuccess();     
+					}
 				}
 			}
+			http.send(params);
+		}else{
+			Ext.Msg.alert('No Internet Connection');
 		}
-		http.send(params);
     },
  
     signInSuccess: function () {
         console.log('Signed in.');
 		var loginView = this.getLoginView();
 		//countryListView = this.getCategoryListView();
-		mainView = this.getMainView();
+		afterLoginView = this.getAfterLoginView();
 		
         loginView.setMasked(false);
- 
-        Ext.Viewport.animateActiveItem(mainView, this.getSlideLeftTransition());
+		//loginView.removeAll();
+		//loginView.setActiveItem('afterloginview');
+		//loginView.setItems('mainAcc');
+        Ext.Viewport.animateActiveItem(afterLoginView, this.getSlideLeftTransition());
     },
  
     singInFailure: function (message) {

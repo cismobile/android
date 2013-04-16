@@ -11,25 +11,16 @@ Ext.application({
     ],
 
     views: [
-		'Login',
-		'Main',
-        'CountryList',
-		'Country',
+		'Main'
 	],
 	
     controllers: [
-        'Login',
-        'countryList'
     ],
 
 	models: [
-		'CategoryList',
-		'CountryList'
 	],
 	
 	stores: [
-		'CategoryList',
-		'CountryList'
 	],
     
 	icon: {
@@ -73,12 +64,8 @@ Ext.application({
 		});
 
         Ext.Viewport.add([{
-				xtype: 'loginview'
-			},{
 				xtype: 'mainview'
-			},{
-                xtype: 'countrylist'
-            }
+			}
         ]);
     },
 
