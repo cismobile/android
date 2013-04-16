@@ -69,7 +69,7 @@ Ext.define('mobileV1.view.Login', {
 			//rememberField = me.down('#remember_me'),
             label = me.down('#signInFailedLabel'),
             username = usernameField.getValue(),
-            password = passwordField.getValue(),
+            password = passwordField.getValue();
 			//remember = rememberField.getValue();
 
         label.hide();
