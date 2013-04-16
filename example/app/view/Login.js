@@ -7,8 +7,7 @@ Ext.define('mobileV1.view.Login', {
 		'Ext.form.Password', 
 		'Ext.Label', 
 		'Ext.Img', 
-		'Ext.util.DelayedTask',
-		'Ext.field.Toggle'
+		'Ext.util.DelayedTask'
 	],
     config: {
         title: 'Login',
@@ -39,14 +38,7 @@ Ext.define('mobileV1.view.Login', {
                         itemId: 'passwordTextField',
                         name: 'passwordTextField',
                         required: true
-                    }, {
-						xtype: 'togglefield',
-						name: 'remember_me',
-						itemId: 'remember_me',
-						label: 'Remember me?',
-						value: 0,
-						labelWidth: 150
-					}
+                    }
                 ]
             }, {
                 xtype: 'button',
@@ -74,11 +66,11 @@ Ext.define('mobileV1.view.Login', {
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),
-			rememberField = me.down('#remember_me'),
+			//rememberField = me.down('#remember_me'),
             label = me.down('#signInFailedLabel'),
             username = usernameField.getValue(),
             password = passwordField.getValue(),
-			remember = rememberField.getValue();
+			//remember = rememberField.getValue();
 
         label.hide();
 
@@ -88,7 +80,7 @@ Ext.define('mobileV1.view.Login', {
 
             label.setHtml('');
 
-            me.fireEvent('signInCommand', me, username, password,remember);
+            me.fireEvent('signInCommand', me, username, password,1);
 
             usernameField.setValue('');
             passwordField.setValue('');
