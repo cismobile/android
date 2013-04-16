@@ -14,7 +14,8 @@ Ext.application({
 		'Login',
 		'Main',
         'CategoryList',
-		'Categories'
+		'Categories',
+		'AfterLogin'
 	],
 	
     controllers: [
@@ -56,12 +57,14 @@ Ext.application({
         //Ext.Viewport.add(Ext.create('cis.view.Login'));
 
         Ext.Viewport.add([{
-				xtype: 'loginview'
-			},{
 				xtype: 'mainview'
 			},{
+				xtype: 'loginview'
+			},{
                 xtype: 'categorylist'
-            }
+            },{
+				xtype: 'afterloginview'
+			}
         ]);
     },
 
