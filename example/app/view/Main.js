@@ -23,12 +23,8 @@ Ext.define('mobileV1.view.Main', {
                 title: 'My Acc',
                 iconCls: 'user',
 				itemId: 'mainAcc',
-				xtype: 'afterloginview'
-            }, {
-				title: 'Events',
-                iconCls: 'star',
 				xtype: 'loginview'
-			}
+            }
         ],
 		listeners: {
 			activeitemchange: function(r,value,oldvalue,eOpts){
