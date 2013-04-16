@@ -42,7 +42,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								flex: 1
 							},{
 								xtype: 'label',
-								html: 'Transfer',
+								html: 'eAccount',
 								styleHtmlContent: true,
 								style: 'text-align: center'
 							}]
