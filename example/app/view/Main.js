@@ -19,12 +19,12 @@ Ext.define('mobileV1.view.Main', {
                     xtype: 'titlebar',
                     title: 'Home'
                 }
-            }, {
+            }/*, {
                 title: 'My Acc',
                 iconCls: 'user',
 				itemId: 'mainAcc',
 				xtype: 'afterloginview'
-            }/*, {
+            }, {
 				title: 'Events',
                 iconCls: 'star',
 				xtype: 'loginview'
