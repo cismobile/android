@@ -11,9 +11,7 @@ Ext.application({
     ],
 
     views: [
-		'Main',
-		'Login',
-		'AfterLogin'
+		'Main'
 	],
 	
     controllers: [
@@ -49,10 +47,6 @@ Ext.application({
 
         Ext.Viewport.add([{
 				xtype: 'mainview'
-			},{
-				xtype: 'loginview'
-			},{
-				xtype: 'afterloginview'
 			}
         ]);
     },
