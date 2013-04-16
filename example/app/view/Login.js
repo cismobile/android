@@ -7,8 +7,7 @@ Ext.define('mobileV1.view.Login', {
 		'Ext.form.Password', 
 		'Ext.Label', 
 		'Ext.Img', 
-		'Ext.util.DelayedTask',
-		'Ext.field.Toggle'
+		'Ext.util.DelayedTask'
 	],
     config: {
         title: 'Login',
