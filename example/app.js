@@ -1,17 +1,19 @@
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'cis': 'app'
+    'mobileV1': 'app'
 });
 
 Ext.application({
-    name: 'cis',
+    name: 'mobileV1',
 
     requires: [
         'Ext.MessageBox'
     ],
 
     views: [
-		'Main'
+		'Main',
+		'Login',
+		'AfterLogin'
 	],
 	
     controllers: [
@@ -45,26 +47,12 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-		var db = openDatabase('mobileDB', '1.0', 'Test DB', 2 * 1024 * 1024);
-		
-		db.transaction(function (tx) {  
-			tx.executeSql('Drop table em_company');
-			tx.executeSql('CREATE TABLE IF NOT EXISTS em_company (id PRIMARY KEY, f_code VARCHAR(20),f_name VARCHAR(30))');
-		});
-		
-		Ext.getStore('CountryList').on('load', function (store, records, successful, operation, eOpts) {         
-			for (var i = 0; i < records.length; i++) {
-				var e = records[i];
-				(function(e) {
-					db.transaction(function (tx) {  
-							tx.executeSql('INSERT INTO em_company (f_code) VALUES (?)',  [e.get('f_code')]);
-					});
-				  })(e);
-			}
-		});
-
         Ext.Viewport.add([{
 				xtype: 'mainview'
+			},{
+				xtype: 'loginview'
+			},{
+				xtype: 'afterloginview'
 			}
         ]);
     },
