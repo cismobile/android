@@ -4,6 +4,7 @@ Ext.define('mobileV1.view.Login', {
     requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
     config: {
         title: 'Login',
+		fullscreen: true,
         items: [{
                 xtype: 'image',
                 src: Ext.Viewport.getOrientation() == 'portrait' ? 'resources/image/login.png' : 'resources/image/login.png',

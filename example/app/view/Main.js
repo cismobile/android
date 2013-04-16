@@ -20,6 +20,10 @@ Ext.define('mobileV1.view.Main', {
                     title: 'Home'
                 }
             }, {
+				title: 'Login',
+                iconCls: 'star',	
+                xtype: 'loginview',
+			}, {
                 title: 'My Acc',
                 iconCls: 'user',
 				itemId: 'mainAcc',
@@ -37,11 +41,7 @@ Ext.define('mobileV1.view.Main', {
 				}
 			},
 			activate: function(){
-				if(this.getActiveItem().getItemId() == 'mainAcc'){
-					if(localStorage.status === undefined){
-						
-					}
-				}
+				
 			}
 		}
     }
