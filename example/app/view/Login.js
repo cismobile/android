@@ -5,7 +5,8 @@ Ext.define('mobileV1.view.Login', {
 		'Ext.device.Connection',
 		'Ext.form.FieldSet', 
 		'Ext.form.Password', 
-		'Ext.Label', 'Ext.Img', 
+		'Ext.Label', 
+		'Ext.Img', 
 		'Ext.util.DelayedTask',
 		'Ext.field.Toggle'
 	],
