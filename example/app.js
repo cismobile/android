@@ -49,6 +49,8 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
         Ext.Viewport.add([{
 				xtype: 'mainview'
 			},{
