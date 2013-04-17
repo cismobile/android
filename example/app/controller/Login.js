@@ -31,7 +31,7 @@ Ext.define('mobileV1.controller.Login', {
     },
 	
     onSignInCommand: function (view, username, password,remember) {
-		if(Ext.device.Connection.isOnline() === true){
+		//if(Ext.device.Connection.isOnline() === true){
 			console.log('Username: ' + username + '\n' + 'Password: ' + password);
 	 
 			var me = this,
@@ -71,9 +71,9 @@ Ext.define('mobileV1.controller.Login', {
 				}
 			}
 			http.send(params);
-		}else{
-			Ext.Msg.alert('No Internet Connection');
-		}
+		//}else{
+			//Ext.Msg.alert('No Internet Connection');
+		//}
     },
  
     signInSuccess: function () {
