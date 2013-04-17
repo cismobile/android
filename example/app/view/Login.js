@@ -48,14 +48,14 @@ Ext.define('mobileV1.view.Login', {
                         itemId: 'passwordTextField',
                         name: 'passwordTextField',
                         required: true
-                    }, {
+                    }/*, {
 						xtype: 'togglefield',
 						name: 'remember_me',
 						itemId: 'remember_me',
 						label: 'Remember me?',
 						value: 0,
 						labelWidth: 150
-					}
+					}*/
                 ]
             }/*, {
                 xtype: 'button',
@@ -76,20 +76,25 @@ Ext.define('mobileV1.view.Login', {
                 delegate: '#logInButton',
                 event: 'tap',
                 fn: 'onLogInButtonTap'
-            }
+            },{
+				delegate: '#backButton',
+				event: 'tap',
+				fn: 'backButtonTap'
+			}
         ]
     },
-    onLogInButtonTap: function () {
-		var networkState = navigator.network.connection.type;
+	backButtonTap: function(){
 		
+	},
+    onLogInButtonTap: function () {
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),
-			rememberField = me.down('#remember_me'),
+			//rememberField = me.down('#remember_me'),
             label = me.down('#signInFailedLabel'),
             username = usernameField.getValue(),
-            password = passwordField.getValue(),
-			remember = rememberField.getValue();
+            password = passwordField.getValue();
+			//remember = rememberField.getValue();
 
         label.hide();
 
@@ -99,7 +104,7 @@ Ext.define('mobileV1.view.Login', {
 
             label.setHtml('');
 
-            me.fireEvent('signInCommand', me, username, password,remember);
+            me.fireEvent('signInCommand', me, username, password);
 
             usernameField.setValue('');
             passwordField.setValue('');

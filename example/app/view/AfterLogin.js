@@ -1,4 +1,4 @@
-/*var loginPanel = Ext.define('mobileV1.view.AfterLogin', {
+Ext.define('mobileV1.view.AfterLogin', {
     extend: 'Ext.Container',
     xtype: 'afterloginview',
     requires: ['Ext.layout.VBox','Ext.TitleBar'],
@@ -136,13 +136,14 @@
         localStorage.clear();
 		//var me = this;
 		//me.fireEvent('logoutCommand', me);
-		var tabPanel = Ext.Viewport.down("tabpanel");
-		tabPanel.setActiveItem(0);
+		//var tabPanel = Ext.Viewport.down("tabpanel");
+		//tabPanel.setActiveItem(0);
+		this.setActiveItem(0);
 		//view.show(); //This is additionally done to fire showAnimation
     }
-});*/
+});
 
-Ext.define('mobileV1.view.AfterLogin', {
+/*Ext.define('mobileV1.view.AfterLogin', {
     extend: 'Ext.tab.Panel',
     xtype: 'afterloginview',
     requires: ['Ext.layout.VBox','Ext.TitleBar'],
@@ -303,4 +304,4 @@ Ext.define('mobileV1.view.AfterLogin', {
 		this.setActiveItem(0);
 		//view.show(); //This is additionally done to fire showAnimation
     }
-});
+});*/

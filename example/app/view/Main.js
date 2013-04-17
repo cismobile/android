@@ -13,7 +13,7 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
 
                 styleHtmlContent: true,
                 scrollable: true,
-				html: 'AA',
+				html: [ "<a href=\"javascript:navigator.notification.alert('Congratulations, you are ready to work with Sencha Touch 2 and PhoneGap!')\">Click me</a>" ].join(""),
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
@@ -28,7 +28,8 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
         ],
 		listeners: {
 			activeitemchange: function(r,value,oldvalue,eOpts){
-				if(this.getActiveItem().getItemId() == 'mainAcc'){
+				this.setActiveItem(0);
+				/*if(this.getActiveItem().getItemId() == 'mainAcc'){
 					if(localStorage.status === undefined){
 						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},{ type: 'slide', direction: 'up' });
 					}else{
@@ -36,14 +37,7 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
 					}
 					this.setActiveItem(view);
 					view.show(); //This is additionally done to fire showAnimation
-				}
-			},
-			activate: function(){
-				if(this.getActiveItem().getItemId() == 'mainAcc'){
-					if(localStorage.status === undefined){
-						
-					}
-				}
+				}*/
 			}
 		}
     }
