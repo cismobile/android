@@ -46,7 +46,8 @@ Ext.define('mobileV1.controller.Login', {
 				
 	 
 			if (username.length === 0 || password.length === 0) {
-				Ext.Msg.alert('Please enter your username and password.');
+				navigator.notification.alert('Please enter your username and password.','','Alert','Alert');
+				//Ext.Msg.alert('Please enter your username and password.');
 				return;
 			}
 	 
@@ -65,7 +66,8 @@ Ext.define('mobileV1.controller.Login', {
 				if (http.readyState == 4 && http.status == 200) {
 					if(http.responseText == 'false1'){
 						loginView.setMasked(false);
-						Ext.Msg.alert('Login failed. Please try again later.');
+						navigator.notification.alert('Login failed. Please try again later.','','Alert','Alert');
+						//Ext.Msg.alert('Login failed. Please try again later.');
 						//loginView.showSignInFailedMessage('Login failed. Please try again later.');
 					}else{
 						//me.sessionToken = http.responseText;
