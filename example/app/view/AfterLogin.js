@@ -30,7 +30,6 @@ Ext.define('mobileV1.view.AfterLogin', {
 							xtype: 'button',
 							itemId: 'logOffButton',
 							ui: 'action',
-							padding: '10px',
 							text: 'logout',
 							align: 'right',
 						}
@@ -38,7 +37,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 				}, {
 					xtype: 'container',
 					layout: 'hbox',
-					style: 'padding:20px;margin-top:30px',
+					style: 'padding:20px;margin-top:auto',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
@@ -97,7 +96,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 
 					layout: 'hbox',
 					flex: 1,
-					style: 'padding:20px;margin-top:30px',
+					style: 'padding:20px;margin-top:auto',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
