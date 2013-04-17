@@ -7,7 +7,8 @@ Ext.application({
     name: 'mobileV1',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+		'mobileV1.Tabfix'
     ],
 
     views: [
@@ -50,6 +51,8 @@ Ext.application({
 
         Ext.Viewport.add([{
 				xtype: 'mainview'
+			},{
+				xtype: 'loginview'
 			}
         ]);
     },

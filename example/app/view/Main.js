@@ -1,4 +1,4 @@
-Ext.define('mobileV1.view.Main', {
+var tabpanel = Ext.define('mobileV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'mainview',
     requires: [
@@ -13,7 +13,7 @@ Ext.define('mobileV1.view.Main', {
 
                 styleHtmlContent: true,
                 scrollable: true,
-
+				html: 'AA',
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
@@ -34,7 +34,7 @@ Ext.define('mobileV1.view.Main', {
 					}else{
 						var view = Ext.Viewport.animateActiveItem({xtype: 'afterloginview'},{ type: 'slide', direction: 'left' });
 					}
-					Ext.Viewport.setActiveItem(view);
+					this.setActiveItem(view);
 					view.show(); //This is additionally done to fire showAnimation
 				}
 			},

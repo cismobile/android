@@ -12,7 +12,7 @@ Ext.define('mobileV1.controller.Login', {
             },
             mainView: {
                 onSignOffCommand: 'onSignOffCommand'
-            },
+            }
 			
         }
     },
@@ -86,6 +86,7 @@ Ext.define('mobileV1.controller.Login', {
 		//loginView.removeAll();
 		//Ext.Viewport.setActiveItem(1);
 		//loginView.setItems('mainAcc');
+		loginView.destroy();
         Ext.Viewport.setActiveItem({xtype: 'afterloginview'});
 		//Ext.Viewport.add(afterLoginView);
     },
