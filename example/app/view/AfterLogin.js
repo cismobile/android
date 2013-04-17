@@ -25,6 +25,16 @@ Ext.define('mobileV1.view.AfterLogin', {
 				items: [{
 					xtype: 'titlebar',
 					title: 'My Account',
+					docked: 'top',
+					items: [{
+							xtype: 'button',
+							itemId: 'logOffButton',
+							ui: 'action',
+							padding: '10px',
+							text: 'logout',
+							align: 'right',
+						}
+					]
 				}, {
 					xtype: 'container',
 					layout: 'hbox',
