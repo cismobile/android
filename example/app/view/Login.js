@@ -10,7 +10,7 @@ Ext.define('mobileV1.view.Login', {
 	            docked: 'top',
 	            items: [{
 						xtype: 'button',
-	                    text: 'home',
+	                    text: 'back',
 	                    itemId: 'backButton',
 	                    align: 'left'
 					},{
@@ -78,13 +78,13 @@ Ext.define('mobileV1.view.Login', {
                 fn: 'onLogInButtonTap'
             },{
 				delegate: '#backButton',
-				event: 'tap',
-				fn: 'backButtonTap'
+                event: 'tap',
+                fn: 'backButtonTap'
 			}
         ]
     },
 	backButtonTap: function(){
-		
+		Ext.Viewport.animateActiveItem({xtype: 'mainview'},'fade');
 	},
     onLogInButtonTap: function () {
         var me = this,

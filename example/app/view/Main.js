@@ -10,8 +10,10 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
         items: [{
                 title: 'Home',
                 iconCls: 'home',
+
                 styleHtmlContent: true,
                 scrollable: true,
+				html: 'AA',
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
@@ -26,15 +28,15 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
         ],
 		listeners: {
 			activeitemchange: function(r,value,oldvalue,eOpts){
-				/*if(this.getActiveItem().getItemId() == 'mainAcc'){
+				if(this.getActiveItem().getItemId() == 'mainAcc'){
 					if(localStorage.status === undefined){
-						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},{ type: 'slide', direction: 'up' });
+						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},'fade');
 					}else{
-						var view = Ext.Viewport.animateActiveItem({xtype: 'afterloginview'},{ type: 'slide', direction: 'left' });
+						var view = Ext.Viewport.animateActiveItem({xtype: 'afterloginview'},'fade');
 					}
-					this.setActiveItem(view);
+					//this.setActiveItem(view);
 					view.show(); //This is additionally done to fire showAnimation
-				}*/
+				}
 			}
 		}
     }
