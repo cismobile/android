@@ -30,7 +30,7 @@ Ext.define('mobileV1.view.Main', {
 			activeitemchange: function(r,value,oldvalue,eOpts){
 				if(this.getActiveItem().getItemId() == 'mainAcc'){
 					if(localStorage.status === undefined){
-						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},{ type: 'slide', direction: 'down' });
+						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},{ type: 'slide', direction: 'up' });
 					}else{
 						var view = Ext.Viewport.animateActiveItem({xtype: 'afterloginview'},{ type: 'slide', direction: 'left' });
 					}

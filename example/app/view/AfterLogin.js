@@ -22,6 +22,8 @@ Ext.define('mobileV1.view.AfterLogin', {
                 title: 'My Acc',
                 iconCls: 'user',
 				itemId: 'mainAcc',
+				styleHtmlContent: true,
+                scrollable: true,
 				items: [{
 					xtype: 'titlebar',
 					title: 'My Account',
@@ -52,8 +54,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'eAccount',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						}, {
 							xtype: 'container',
@@ -69,8 +70,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'Transfer',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						},{
 							xtype: 'container',
@@ -86,8 +86,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'Transfer',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						}
 					]
@@ -110,8 +109,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'Transfer',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						}, {
 							xtype: 'container',
@@ -127,8 +125,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'Transfer',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						}, {
 							xtype: 'container',
@@ -144,13 +141,24 @@ Ext.define('mobileV1.view.AfterLogin', {
 							},{
 								xtype: 'label',
 								html: 'Transfer',
-								styleHtmlContent: true,
-								style: 'text-align: center;padding:10px'
+								styleHtmlContent: true
 							}]
 						}
 					]
 				}]
             }
+        ],
+		listeners: [{
+                delegate: '#logOffButton',
+                event: 'tap',
+                fn: 'onLogOffButtonTap'
+            }
         ]
-    }
+    },
+	onLogOffButtonTap: function () {
+        localStorage.clear();
+		
+		Ext.Viewport.setActiveItem(0);
+		//view.show(); //This is additionally done to fire showAnimation
+    },
 });
