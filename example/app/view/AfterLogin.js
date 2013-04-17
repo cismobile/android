@@ -39,7 +39,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 				}, {
 					xtype: 'container',
 					layout: 'hbox',
-					style: 'padding:20px;margin-top:10px',
+					style: 'padding:10px 10px 5px 10px',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
@@ -93,8 +93,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 				}, {
 					xtype: 'container',
 					layout: 'hbox',
-					flex: 1,
-					style: 'padding:20px;margin-top:10px',
+					style: 'padding:10px 10px 5px 10px',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
