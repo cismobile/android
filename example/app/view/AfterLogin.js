@@ -37,7 +37,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 				}, {
 					xtype: 'container',
 					layout: 'hbox',
-					style: 'padding:20px;margin-top:auto',
+					style: 'padding:20px;margin-top:10px',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
@@ -53,7 +53,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'eAccount',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						}, {
 							xtype: 'container',
@@ -70,7 +70,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'Transfer',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						},{
 							xtype: 'container',
@@ -87,16 +87,15 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'Transfer',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						}
 					]
 				}, {
 					xtype: 'container',
-
 					layout: 'hbox',
 					flex: 1,
-					style: 'padding:20px;margin-top:auto',
+					style: 'padding:20px;margin-top:10px',
 					items: [{
 							xtype: 'container',
 							layout: 'vbox',
@@ -112,7 +111,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'Transfer',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						}, {
 							xtype: 'container',
@@ -129,7 +128,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'Transfer',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						}, {
 							xtype: 'container',
@@ -146,7 +145,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 								xtype: 'label',
 								html: 'Transfer',
 								styleHtmlContent: true,
-								style: 'text-align: center'
+								style: 'text-align: center;padding:10px'
 							}]
 						}
 					]
