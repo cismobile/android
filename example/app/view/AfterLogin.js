@@ -4,7 +4,7 @@ Ext.define('mobileV1.view.AfterLogin', {
     requires: ['Ext.layout.VBox','Ext.TitleBar'],
 
     config: {
-        tabBarPosition: 'bottom',
+		tabBarPosition: 'bottom',
 		activeItem: 1,
         items: [{
                 title: 'Home',
@@ -142,13 +142,7 @@ Ext.define('mobileV1.view.AfterLogin', {
 						}
 					]
 				}]
-            },{
-				title: 'Login',
-                iconCls: 'star',
-				hidden: true,
-				itemId: 'mainAcc',
-				xtype: 'loginview'
-			}
+            }
         ]
     }
 });

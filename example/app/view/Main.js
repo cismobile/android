@@ -39,7 +39,11 @@ Ext.define('mobileV1.view.Main', {
 				}
 			},
 			activate: function(){
-				
+				if(this.getActiveItem().getItemId() == 'mainAcc'){
+					if(localStorage.status === undefined){
+						
+					}
+				}
 			}
 		}
     }

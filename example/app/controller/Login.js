@@ -77,17 +77,17 @@ Ext.define('mobileV1.controller.Login', {
     },
  
     signInSuccess: function () {
-        //console.log('Signed in.');
+        console.log('Signed in.');
 		var loginView = this.getLoginView();
 		var mainView = this.getMainView();
 		afterLoginView = this.getAfterLoginView();
 		
         loginView.setMasked(false);
-		//loginView.setActiveItem('afterloginview');
+		//loginView.removeAll();
+		//Ext.Viewport.setActiveItem(1);
 		//loginView.setItems('mainAcc');
-        Ext.Viewport.animateActiveItem(afterLoginView, this.getSlideLeftTransition());
-		//Ext.Viewport.setActiveItem(0);
-		Ext.Viewport.add({xtype: 'afterloginview'});
+        Ext.Viewport.setActiveItem({xtype: 'afterloginview'});
+		//Ext.Viewport.add(afterLoginView);
     },
  
     singInFailure: function (message) {

@@ -4,8 +4,25 @@ Ext.define('mobileV1.view.Login', {
     requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
     config: {
         title: 'Login',
-		fullscreen: true,
         items: [{
+	            xtype: 'titlebar',
+	            title: 'CIS Mobile',
+	            docked: 'top',
+	            items: [{
+						xtype: 'button',
+	                    text: 'back',
+	                    itemId: 'backButton',
+	                    align: 'left'
+					},{
+						xtype: 'button',
+						itemId: 'logInButton',
+						ui: 'action',
+						padding: '10px',
+						text: 'login',
+						align: 'right',
+	                }
+	            ]
+			}, {
                 xtype: 'image',
                 src: Ext.Viewport.getOrientation() == 'portrait' ? 'resources/image/login.png' : 'resources/image/login.png',
                 style: Ext.Viewport.getOrientation() == 'portrait' ? 'width:128px;height:128px;margin:auto;margin-top:20px' : 'width:40px;height:40px;margin:auto;margin-top:20px'
@@ -41,7 +58,7 @@ Ext.define('mobileV1.view.Login', {
 						labelWidth: 150
 					}
                 ]
-            }, {
+            }/*, {
                 xtype: 'button',
                 itemId: 'logInButton',
                 ui: 'action',
@@ -54,7 +71,7 @@ Ext.define('mobileV1.view.Login', {
 				style: 'margin-top: 10px',
 				padding: '10px',
 				text: 'Cancel'
-			}
+			}*/
         ],
         listeners: [{
                 delegate: '#logInButton',
