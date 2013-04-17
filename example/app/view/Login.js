@@ -1,7 +1,8 @@
 Ext.define('mobileV1.view.Login', {
     extend: 'Ext.form.Panel',
-    xtype: 'loginview',
-    equires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
+    //xtype: 'loginview',
+	alias: "widget.loginview",
+    requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.field.Toggle'],
     config: {
         title: 'Login',
         items: [{
@@ -17,7 +18,6 @@ Ext.define('mobileV1.view.Login', {
 						xtype: 'button',
 						itemId: 'logInButton',
 						ui: 'action',
-						padding: '10px',
 						text: 'login',
 						align: 'right',
 	                }
