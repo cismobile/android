@@ -87,31 +87,34 @@ Ext.define('mobileV1.view.Login', {
 		Ext.Viewport.animateActiveItem({xtype: 'mainview'},'fade');
 	},
     onLogInButtonTap: function () {
-        var me = this,
-            usernameField = me.down('#userNameTextField'),
-            passwordField = me.down('#passwordTextField'),
-			//rememberField = me.down('#remember_me'),
-            label = me.down('#signInFailedLabel'),
-            username = usernameField.getValue(),
-            password = passwordField.getValue();
-			//remember = rememberField.getValue();
+		if(navigator.connection.type != 'none'){
+			var me = this,
+				usernameField = me.down('#userNameTextField'),
+				passwordField = me.down('#passwordTextField'),
+				//rememberField = me.down('#remember_me'),
+				label = me.down('#signInFailedLabel'),
+				username = usernameField.getValue(),
+				password = passwordField.getValue();
+				//remember = rememberField.getValue();
 
-        label.hide();
+			label.hide();
 
-        // Using a delayed task in order to give the hide animation above
-        // time to finish before executing the next steps.
-        var task = Ext.create('Ext.util.DelayedTask', function () {
+			// Using a delayed task in order to give the hide animation above
+			// time to finish before executing the next steps.
+			var task = Ext.create('Ext.util.DelayedTask', function () {
 
-            label.setHtml('');
+				label.setHtml('');
 
-            me.fireEvent('signInCommand', me, username, password);
+				me.fireEvent('signInCommand', me, username, password);
 
-            usernameField.setValue('');
-            passwordField.setValue('');
-        });
+				usernameField.setValue('');
+				passwordField.setValue('');
+			});
 
-        task.delay(100);
-
+			task.delay(100);
+		}else{
+			navigator.notification.alert('No Internet Connection','','Alert','Alert');
+		}
     },
     showSignInFailedMessage: function (message) {
         var label = this.down('#signInFailedLabel');
