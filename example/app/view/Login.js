@@ -1,8 +1,7 @@
 Ext.define('mobileV1.view.Login', {
     extend: 'Ext.form.Panel',
-    //xtype: 'loginview',
-	alias: "widget.loginview",
-    requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask'],
+    xtype: 'loginview',
+    requires: ['Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask'],
     config: {
         title: 'Login',
         items: [{
