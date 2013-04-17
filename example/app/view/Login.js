@@ -1,7 +1,7 @@
 Ext.define('mobileV1.view.Login', {
     extend: 'Ext.form.Panel',
     xtype: 'loginview',
-    requires: ['Ext.device.Connection','Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
+    requires: ['Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask','Ext.data.proxy.SessionStorage','Ext.field.Toggle'],
     config: {
         title: 'Login',
         items: [{
@@ -80,34 +80,30 @@ Ext.define('mobileV1.view.Login', {
         ]
     },
     onLogInButtonTap: function () {
-		if(Ext.device.Connection.isOnline() === true){
-			var me = this,
-				usernameField = me.down('#userNameTextField'),
-				passwordField = me.down('#passwordTextField'),
-				rememberField = me.down('#remember_me'),
-				label = me.down('#signInFailedLabel'),
-				username = usernameField.getValue(),
-				password = passwordField.getValue(),
-				remember = rememberField.getValue();
+        var me = this,
+            usernameField = me.down('#userNameTextField'),
+            passwordField = me.down('#passwordTextField'),
+			rememberField = me.down('#remember_me'),
+            label = me.down('#signInFailedLabel'),
+            username = usernameField.getValue(),
+            password = passwordField.getValue(),
+			remember = rememberField.getValue();
 
-			label.hide();
+        label.hide();
 
-			// Using a delayed task in order to give the hide animation above
-			// time to finish before executing the next steps.
-			var task = Ext.create('Ext.util.DelayedTask', function () {
+        // Using a delayed task in order to give the hide animation above
+        // time to finish before executing the next steps.
+        var task = Ext.create('Ext.util.DelayedTask', function () {
 
-				label.setHtml('');
+            label.setHtml('');
 
-				me.fireEvent('signInCommand', me, username, password,remember);
+            me.fireEvent('signInCommand', me, username, password,remember);
 
-				usernameField.setValue('');
-				passwordField.setValue('');
-			});
+            usernameField.setValue('');
+            passwordField.setValue('');
+        });
 
-			task.delay(100);
-		}else{
-			Ext.Msg.alert('No Internet Connection');
-		}
+        task.delay(100);
 
     },
     showSignInFailedMessage: function (message) {
