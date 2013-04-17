@@ -291,17 +291,16 @@ Ext.define('mobileV1.view.AfterLogin', {
             }
         ],
 		listeners: [{
-                delegate: '#logOffButton',
-                event: 'tap',
-                fn: 'onLogOffButtonTap'
-            }
-        ]
+			delegate: '#logOffButton',
+			event: 'tap',
+			fn: 'onLogOffButtonTap',
+		}]
     },
 	onLogOffButtonTap: function () {
         localStorage.clear();
+		//this.setActiveItem(0);
+		//var tabPanel = Ext.Viewport.down("tabpanel");
 		this.setActiveItem(0);
-		var tabPanel = Ext.Viewport.down("tabpanel");
-		tabPanel.setActiveItem(1);
 		//view.show(); //This is additionally done to fire showAnimation
     }
 });

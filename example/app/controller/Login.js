@@ -93,8 +93,9 @@ Ext.define('mobileV1.controller.Login', {
  
     singInFailure: function (message) {
         var loginView = this.getLoginView();
-        loginView.showSignInFailedMessage(message);
-        loginView.setMasked(false);
+        Ext.Msg.alert('Connection Timeout');
+		//loginView.showSignInFailedMessage(message);
+        //loginView.setMasked(false);
     },
  
     onSignOffCommand: function () {

@@ -10,7 +10,7 @@ Ext.define('mobileV1.view.Login', {
 	            docked: 'top',
 	            items: [{
 						xtype: 'button',
-	                    text: 'back',
+	                    text: 'home',
 	                    itemId: 'backButton',
 	                    align: 'left'
 					},{
@@ -80,6 +80,8 @@ Ext.define('mobileV1.view.Login', {
         ]
     },
     onLogInButtonTap: function () {
+		var networkState = navigator.network.connection.type;
+		
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),
