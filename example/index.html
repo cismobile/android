@@ -1,62 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CIS Mobile</title>
-	<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
-	<script id="microloader" type="text/javascript" src="touch/microloader/development.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-	<script type="text/javascript" src="js/index.js"></script>
-     <style type="text/css">
-        html, body {
-            height: 100%;
-            background-color: #1985D0
-        }
+    <title>navigator.connection.type Example</title>
 
-        #appLoadingIndicator {
-            position: absolute;
-            top: 50%;
-            margin-top: -15px;
-            text-align: center;
-            width: 100%;
-            height: 30px;
-            -webkit-animation-name: appLoadingIndicator;
-            -webkit-animation-duration: 0.5s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-direction: linear;
-        }
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
 
-        #appLoadingIndicator > * {
-            background-color: #FFFFFF;
-            display: inline-block;
-            height: 30px;
-            -webkit-border-radius: 15px;
-            margin: 0 5px;
-            width: 30px;
-            opacity: 0.8;
-        }
+    // Wait for Cordova to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-        @-webkit-keyframes appLoadingIndicator{
-            0% {
-                opacity: 0.8
-            }
-            50% {
-                opacity: 0
-            }
-            100% {
-                opacity: 0.8
-            }
-        }
-    </style>
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.CELL]     = 'Cell generic connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
+    }
+
+    </script>
   </head>
   <body>
-    <div id="appLoadingIndicator">
-	        <div></div>
-	        <div></div>
-	        <div></div>
-	    </div>
-        <script type="text/javascript">
-        	document.addEventListener("deviceready", onDeviceReady, false);
-            app.initialize();
-        </script>
+    <p>A dialog box will report the network state.</p>
   </body>
 </html>
