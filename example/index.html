@@ -5,7 +5,13 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
     <script type="text/javascript" charset="utf-8">
-		alert('');
+
+    // Wait for Cordova to load
+    // 
+    document.addEventListener("deviceready", function(){
+        navigator.notification.alert('You are the winner!',"",'Game Over','Done');
+    })
+
     </script>
   </head>
   <body>
