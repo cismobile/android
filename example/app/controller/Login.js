@@ -38,7 +38,7 @@ Ext.define('mobileV1.controller.Login', {
 	},
 	
     onSignInCommand: function (view, username, password) {
-		if(Ext.device.Connection.isOnline() === true){
+		//if(Ext.device.Connection.isOnline() === true){
 			console.log('Username: ' + username + '\n' + 'Password: ' + password);
 	 
 			var me = this,
@@ -46,7 +46,7 @@ Ext.define('mobileV1.controller.Login', {
 				
 	 
 			if (username.length === 0 || password.length === 0) {
-				navigator.notification.alert('Please enter your username and password.',function(),'Alert','Alert');
+           navigator.notification.alert('Please enter your username and password.',function(){},'Alert','Alert');
 				//Ext.Msg.alert('Please enter your username and password.');
 				return;
 			}
@@ -66,7 +66,7 @@ Ext.define('mobileV1.controller.Login', {
 				if (http.readyState == 4 && http.status == 200) {
 					if(http.responseText == 'false1'){
 						loginView.setMasked(false);
-						navigator.notification.alert('Login failed. Please try again later.',function(),'Alert','Alert');
+           navigator.notification.alert('Login failed. Please try again later.',function(){},'Alert','Alert');
 						//Ext.Msg.alert('Login failed. Please try again later.');
 						//loginView.showSignInFailedMessage('Login failed. Please try again later.');
 					}else{
@@ -77,9 +77,9 @@ Ext.define('mobileV1.controller.Login', {
 				}
 			}
 			http.send(params);
-		}else{
-			navigator.notification.alert('No Internet Connection',function(),'Alert','Alert');
-		}
+		//}else{
+			//Ext.Msg.alert('No Internet Connection');
+		//}
     },
  
     signInSuccess: function () {
