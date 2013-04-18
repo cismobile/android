@@ -87,7 +87,6 @@ Ext.define('mobileV1.view.Login', {
 		Ext.Viewport.animateActiveItem({xtype: 'mainview'},'fade');
 	},
     onLogInButtonTap: function () {
-		alert(navigator.connection.type);
 		//if(navigator.connection.type != 'none'){
 			var me = this,
 				usernameField = me.down('#userNameTextField'),
