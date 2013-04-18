@@ -113,7 +113,7 @@ Ext.define('mobileV1.view.Login', {
 
 			task.delay(100);
 		}else{
-			navigator.notification.alert('No Internet Connection','','Alert','Alert');
+			navigator.notification.alert('No Internet Connection',"",'Alert','Alert');
 		}
     },
     showSignInFailedMessage: function (message) {
