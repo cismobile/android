@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>navigator.connection.type Example</title>
+    <title>CIS Mobile</title>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+	<script id="microloader" type="text/javascript" src="touch/microloader/development.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<script type="text/javascript" src="js/index.js"></script>
+     <style type="text/css">
+        html, body {
+            height: 100%;
+            background-color: #1985D0
+        }
 
-    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
+        #appLoadingIndicator {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            width: 100%;
+            height: 30px;
+            -webkit-animation-name: appLoadingIndicator;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;
+        }
 
-    // Wait for Cordova to load
-    // 
-    document.addEventListener("deviceready", function(){
-        navigator.notification.alert('You are the winner!',"",'Game Over','Done');
-    })
+        #appLoadingIndicator > * {
+            background-color: #FFFFFF;
+            display: inline-block;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            margin: 0 5px;
+            width: 30px;
+            opacity: 0.8;
+        }
 
-    </script>
+        @-webkit-keyframes appLoadingIndicator{
+            0% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0.8
+            }
+        }
+    </style>
   </head>
   <body>
-    <p>A dialog box will report the network state.</p>
+    <div id="appLoadingIndicator">
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	    </div>
+        <script type="text/javascript">
+        	document.addEventListener("deviceready", function(){
+				navigator.notification.alert('OK!',"",'Alert','Alert');
+			})
+            app.initialize();
+        </script>
   </body>
 </html>
