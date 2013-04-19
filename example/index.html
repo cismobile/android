@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+
+
+<!--<!DOCTYPE html>
 <html>
   <head>
     <title>CIS Mobile</title>
-	<!--<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>-->
+	<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
 	<script id="microloader" type="text/javascript" src="touch/microloader/development.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script type="text/javascript" src="js/index.js"></script>
@@ -55,8 +57,50 @@
 	        <div></div>
 	    </div>
         <script type="text/javascript">
-        	document.addEventListener("deviceready", function(){alert('');},false);
+        	document.addEventListener("deviceready", function(){},false);
             
         </script>
   </body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notification Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+    function alertDismissed() {
+        // do something
+    }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    </script>
+  </head>
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+  </body>
 </html>
+
