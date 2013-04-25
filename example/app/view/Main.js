@@ -52,11 +52,15 @@ Ext.define('cis.view.Main', {
 					setTimeout(function(){
 						form.down('#imageTesting2').hide();
 						form.down('#imageTesting3').show();
-					},250);
+					},500);
 					setTimeout(function(){
 						form.down('#imageTesting3').hide();
 						form.down('#imageTesting4').show();
-					},255);
+					},1000);
+					setTimeout(function(){
+						form.down('#imageTesting4').hide();
+						form.down('#imageTesting5').show();
+					},1500);
 				}
 			}]
 		}]
