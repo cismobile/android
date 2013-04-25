@@ -23,7 +23,7 @@ Ext.define('cis.view.Main', {
 		},{
 			xtype: 'image',
 			itemId: 'imageTesting5',
-			html: '<img src="resources/image/287057.jpgn">'
+			html: '<img src="resources/image/287057.jpg">'
 		},{
 			xtype: 'container',
 			layout: 'hbox',
