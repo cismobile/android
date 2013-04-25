@@ -9,6 +9,10 @@ Ext.define('cis.view.Main', {
 			itemId: 'imageTesting',
 			html: '<img src="resources/image/login.jpg">'
 		},{
+			xtype: 'image',
+			itemId: 'imageTesting2',
+			html: '<img src="resources/image/galaxy_wallpaper_12-HD.jpg">'
+		},{
 			xtype: 'container',
 			layout: 'hbox',
 			items: [{
@@ -18,7 +22,8 @@ Ext.define('cis.view.Main', {
 				text: 'left',
 				handler: function(){
 					var form = this.parent.parent;
-					form.down('#imageTesting').setHtml('<img src="resources/image/galaxy_wallpaper_12-HD.jpg">');
+					form.down('#imageTesting').show();
+					form.down('#imageTesting2').hide();
 				}
 			},{
 				xtype: 'button',
@@ -27,7 +32,8 @@ Ext.define('cis.view.Main', {
 				text: 'right',
 				handler: function(){
 					var form = this.parent.parent;
-					form.down('#imageTesting').setHtml('<img src="resources/image/login.jpg">');
+					form.down('#imageTesting').hide();
+					form.down('#imageTesting2').show();
 				}
 			}]
 		}]
