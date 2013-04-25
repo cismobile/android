@@ -1,42 +1,63 @@
-var tabpanel = Ext.define('mobileV1.view.Main', {
-    extend: 'Ext.tab.Panel',
-    xtype: 'mainview',
-    requires: [
-        'Ext.TitleBar'
-    ],
+Ext.define('cis.view.Main', {
+    extend: 'Ext.Container',
+    xtype: 'main',
+    requires: ['Ext.Img'],
     config: {
-        tabBarPosition: 'bottom',
-		activeItem: 0,
-        items: [{
-                title: 'Home',
-                iconCls: 'home',
-
-                styleHtmlContent: true,
-                scrollable: true,
-				html: 'AA',
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Home'
-                }
-            }, {
-                title: 'My Acc',
-                iconCls: 'user',
-				itemId: 'mainAcc'
-            }
-        ],
-		listeners: {
-			activeitemchange: function(r,value,oldvalue,eOpts){
-				if(this.getActiveItem().getItemId() == 'mainAcc'){
-					if(localStorage.status === undefined){
-						var view = Ext.Viewport.animateActiveItem({xtype: 'loginview'},'fade');
-					}else{
-						var view = Ext.Viewport.animateActiveItem({xtype: 'afterloginview'},'fade');
-					}
-					//this.setActiveItem(view);
-					//view.show(); //This is additionally done to fire showAnimation
+		layout: 'fit',
+		items: [{
+			xtype: 'image',
+			itemId: 'imageTesting',
+			html: '<img src="resources/image/login.jpg">'
+		},{
+			xtype: 'container',
+			layout: 'hbox',
+			items: [{
+				xtype: 'button',
+				width: '50%',
+				style: 'opacity:0',
+				text: 'left',
+				handler: function(){
+					var form = this.parent.parent;
+					form.down('#imageTesting').setHtml('<img src="resources/image/galaxy_wallpaper_12-HD.jpg">');
 				}
-			}
-		}
+			},{
+				xtype: 'button',
+				width: '50%',
+				style: 'opacity:0',
+				text: 'right',
+				handler: function(){
+					var form = this.parent.parent;
+					form.down('#imageTesting').setHtml('<img src="resources/image/login.jpg">');
+				}
+			}]
+		}]
+        /*items: [{
+			xtype: 'image',
+			itemId: 'imageTesting',
+			html: '<img src="resources/image/login.jpg">'
+		},{
+			xtype: 'container',
+			style: 'position:absolute;top:0',
+			items: [{
+				xtype: 'container',
+				width: '100%',
+				items: [{
+					xtype: 'button',
+					text: 'left',
+					handler: function(){
+						var form = this.parent.parent.parent;
+						form.down('#imageTesting').setHtml('<img src="resources/image/galaxy_wallpaper_12-HD.jpg">');
+					}
+				},{
+					xtype: 'button',
+					text: 'right',
+					align: 'right',
+					handler: function(){
+						var form = this.parent.parent.parent;
+						form.down('#imageTesting').setHtml('<img src="resources/image/login.jpg">');
+					}
+				}]
+			}]
+		}]*/
     }
 });

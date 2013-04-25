@@ -1,40 +1,19 @@
-setTimeout(function(){
-	if(Ext.os.name == 'IOS' && Ext.os.is.Tablet === true){
-	var meta = document.createElement('meta');
-	meta.setAttribute("name","viewport");
-	meta.setAttribute("content","width=device-width; initial-scale=2; maximum-scale=2; user-scalable=no;");
-	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(meta);
-	}
-	},1000);
-	
-		 
+var baseUrl = 'http://bangsar.publicvm.com/solucisv3_dev/index.php/';
+
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'mobileV1': 'app'
+    'cis': 'app'
 });
 
 Ext.application({
-    name: 'mobileV1',
+    name: 'cis',
 
     requires: [
-        'Ext.MessageBox',
-		'mobileV1.Tabfix'
+        'Ext.MessageBox'
     ],
 
     views: [
-		'Main',
-		'Login',
-		'AfterLogin'
-	],
-	
-    controllers: [
-		'Login'
-    ],
-
-	models: [
-	],
-	
-	stores: [
+		'Main'
 	],
     
 	icon: {
@@ -58,21 +37,10 @@ Ext.application({
     launch: function () {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-		
-		if(Ext.os.name == "iOS" && Ext.os.is.Tablet === true){
-			var meta = document.createElement('meta');
-			meta.setAttribute("name","viewport");
-			meta.setAttribute("content","user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=2, width=100, height=100");
-			(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(meta);
-		}
-		
+
         Ext.Viewport.add([{
-				xtype: 'mainview'
-			},{
-				xtype: 'loginview'
-			},{
-				xtype: 'afterloginview'
-			}
+                xtype: 'main'
+            }
         ]);
     },
 

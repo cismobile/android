@@ -1,22 +1,17 @@
-Ext.define('mobileV1.controller.Login', {
+Ext.define('cis.controller.Login', {
     extend: 'Ext.app.Controller',
     config: {
         refs: {
-            mainView: 'mainview',
-			loginView: 'loginview',
-			afterLoginView: 'afterloginview'
+            loginView: 'loginview',
+            categoryListView: 'categoryListview'
         },
         control: {
             loginView: {
                 signInCommand: 'onSignInCommand'
             },
-            mainView: {
+            categoryListView: {
                 onSignOffCommand: 'onSignOffCommand'
-            },
-			afterloginview: {
-				logoutCommand: 'onLogoutCommand'
-			}
-			
+            }
         }
     },
  
@@ -32,68 +27,70 @@ Ext.define('mobileV1.controller.Login', {
     getSlideRightTransition: function () {
         return { type: 'slide', direction: 'right' };
     },
-	
-	onLogoutCommand: function(view){
-		view.setActiveItem(0);
-	},
-	
+ 
     onSignInCommand: function (view, username, password) {
-		//if(Ext.device.Connection.isOnline() === true){
-			console.log('Username: ' + username + '\n' + 'Password: ' + password);
-	 
-			var me = this,
-				loginView = me.getLoginView();
-				
-	 
-			if (username.length === 0 || password.length === 0) {
-				//navigator.notification.alert('Please enter your username and password.','','Alert','Alert');
-				Ext.Msg.alert('Please enter your username and password.');
-				return;
-			}
-	 
-			loginView.setMasked({
-				xtype: 'loadmask',
-				message: 'Signing In...'
-			});
+
+        console.log('Username: ' + username + '\n' + 'Password: ' + password);
+ 
+        var me = this,
+            loginView = me.getLoginView();
 			
-			var http = new XMLHttpRequest();
-			var params = "f_email="+username+"&f_password="+password+"";
-				http.open("POST", "http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login", true);
-				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				http.setRequestHeader("Content-length", params.length);
-				http.setRequestHeader("Connection", "close");
-				http.onreadystatechange = function() {
-				if (http.readyState == 4 && http.status == 200) {
-					if(http.responseText == 'false1'){
-						loginView.setMasked(false);
-						//navigator.notification.alert('Login failed. Please try again later.','','Alert','Alert');
-						Ext.Msg.alert('Login failed. Please try again later.');
-						//loginView.showSignInFailedMessage('Login failed. Please try again later.');
-					}else{
-						//me.sessionToken = http.responseText;
-						//Ext.getStore('Session');	
-						me.signInSuccess();     
-					}
-				}
-			}
-			http.send(params);
-		//}else{
-			//Ext.Msg.alert('No Internet Connection');
-		//}
+ 
+        if (username.length === 0 || password.length === 0) {
+ 
+            loginView.showSignInFailedMessage('Please enter your username and password.');
+            return;
+        }
+ 
+        loginView.setMasked({
+            xtype: 'loadmask',
+            message: 'Signing In...'
+        });
+		
+		Ext.util.JSONP.request({
+			url: 'http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login/',
+			callbackKey: 'callback',
+			scope: this, 
+			params: {f_email: 'MY000000',f_password: 'admin'},
+			callback: function(c) {
+                a.data = c;
+                console.log(a.data) //correct json data is here
+            }
+		});
+		
+		/*Ext.Ajax.request({
+            url: 'http://bangsar.publicvm.com/solucisv3_dev/index.php/api/Account/Login/',
+			withCredentials: true,
+			useDefaultXhrHeader: false,
+            params: {f_email: 'MY000000',f_password: 'admin'},
+            success: function (response) {
+ 
+                //var loginResponse = Ext.JSON.decode(response.responseText);
+ 
+                if (loginResponse.msg === "false1") {
+                    // The server will send a token that can be used throughout the app to confirm that the user is authenticated.
+                    me.sessionToken = loginResponse.sessionToken;
+                    me.signInSuccess();     //Just simulating success.
+                } else {
+                    me.signInFailure(loginResponse.message);
+                }
+            },
+            failure: function (response) {
+                me.sessionToken = null;
+                me.signInFailure('Login failed. Please try again later.');
+            }
+        });*/
     },
  
     signInSuccess: function () {
-        console.log('Signed in.');
+        //console.log('Signed in.');
+        
 		var loginView = this.getLoginView();
-		var mainView = this.getMainView();
-		afterLoginView = this.getAfterLoginView();
+		categoryListView = this.getcategoryListView();
 		
         loginView.setMasked(false);
-		//loginView.removeAll();
-		//Ext.Viewport.setActiveItem(1);
-		//loginView.setItems('mainAcc');
-        Ext.Viewport.setActiveItem({xtype: 'afterloginview'});
-		//Ext.Viewport.add(afterLoginView);
+ 
+        Ext.Viewport.animateActiveItem(categoryListView, this.getSlideLeftTransition());
     },
  
     singInFailure: function (message) {
