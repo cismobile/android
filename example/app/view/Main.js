@@ -1,7 +1,7 @@
 Ext.define('cis.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
-    requires: ['Ext.Img'],
+    requires: ['Ext.Img','Ext.util.DelayedTask'],
     config: {
 		layout: 'fit',
 		items: [{
@@ -12,6 +12,18 @@ Ext.define('cis.view.Main', {
 			xtype: 'image',
 			itemId: 'imageTesting2',
 			html: '<img src="resources/image/galaxy_wallpaper_12-HD.jpg">'
+		},{
+			xtype: 'image',
+			itemId: 'imageTesting3',
+			html: '<img src="resources/image/background0250.jpg">'
+		},{
+			xtype: 'image',
+			itemId: 'imageTesting4',
+			html: '<img src="resources/image/201447.jpg">'
+		},{
+			xtype: 'image',
+			itemId: 'imageTesting5',
+			html: '<img src="resources/image/287057.jpgn">'
 		},{
 			xtype: 'container',
 			layout: 'hbox',
@@ -24,6 +36,9 @@ Ext.define('cis.view.Main', {
 					var form = this.parent.parent;
 					form.down('#imageTesting').show();
 					form.down('#imageTesting2').hide();
+					form.down('#imageTesting3').hide();
+					form.down('#imageTesting4').hide();
+					form.down('#imageTesting5').hide();
 				}
 			},{
 				xtype: 'button',
@@ -34,6 +49,14 @@ Ext.define('cis.view.Main', {
 					var form = this.parent.parent;
 					form.down('#imageTesting').hide();
 					form.down('#imageTesting2').show();
+					setTimeout(function(){
+						form.down('#imageTesting2').hide();
+						form.down('#imageTesting3').show();
+					},250);
+					setTimeout(function(){
+						form.down('#imageTesting3').hide();
+						form.down('#imageTesting4').show();
+					},255);
 				}
 			}]
 		}]
