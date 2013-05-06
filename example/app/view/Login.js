@@ -1,13 +1,22 @@
-Ext.define('cis.view.Login', {
+Ext.define('mobileV1.view.Login', {
     extend: 'Ext.form.Panel',
-    alias: "widget.loginview",
-    requires: ['Ext.form.FieldSet', 'Ext.form.Password', 'Ext.Label', 'Ext.Img', 'Ext.util.DelayedTask'],
+    //xtype: 'loginview',
+	alias: "widget.loginview",
+    requires: [
+		'Ext.device.Connection',
+		'Ext.form.FieldSet', 
+		'Ext.form.Password', 
+		'Ext.Label', 
+		'Ext.Img', 
+		'Ext.util.DelayedTask',
+		'Ext.field.Toggle'
+	],
     config: {
         title: 'Login',
         items: [{
                 xtype: 'image',
-                src: Ext.Viewport.getOrientation() == 'portrait' ? '../../login.png' : '../../login.png',
-                style: Ext.Viewport.getOrientation() == 'portrait' ? 'width:80px;height:80px;margin:auto;margin-top:50px' : 'width:40px;height:40px;margin:auto;margin-top:50px'
+                src: Ext.Viewport.getOrientation() == 'portrait' ? 'resources/image/login.png' : 'resources/image/login.png',
+                style: Ext.Viewport.getOrientation() == 'portrait' ? 'width:128px;height:128px;margin:auto;margin-top:20px' : 'width:40px;height:40px;margin:auto;margin-top:20px'
             }, {
                 xtype: 'label',
                 html: 'Login failed. Please enter the correct credentials.',
@@ -18,8 +27,7 @@ Ext.define('cis.view.Login', {
                 style: 'color:#990000;margin:5px 0px;'
             }, {
                 xtype: 'fieldset',
-                //title: 'Login Example',
-                style: 'margin-top:50px',
+                style: 'margin-top:30px',
                 items: [{
                         xtype: 'textfield',
                         placeHolder: 'Username',
@@ -32,7 +40,14 @@ Ext.define('cis.view.Login', {
                         itemId: 'passwordTextField',
                         name: 'passwordTextField',
                         required: true
-                    }
+                    }, {
+						xtype: 'togglefield',
+						name: 'remember_me',
+						itemId: 'remember_me',
+						label: 'Remember me?',
+						value: 0,
+						labelWidth: 150
+					}
                 ]
             }, {
                 xtype: 'button',
@@ -40,7 +55,14 @@ Ext.define('cis.view.Login', {
                 ui: 'action',
                 padding: '10px',
                 text: 'Log In'
-            }
+            }, {
+				xtype: 'button',
+				itemId: 'cancelButton',
+				ui: 'cancel',
+				style: 'margin-top: 10px',
+				padding: '10px',
+				text: 'Cancel'
+			}
         ],
         listeners: [{
                 delegate: '#logInButton',
@@ -53,9 +75,11 @@ Ext.define('cis.view.Login', {
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),
+			rememberField = me.down('#remember_me'),
             label = me.down('#signInFailedLabel'),
             username = usernameField.getValue(),
-            password = passwordField.getValue();
+            password = passwordField.getValue(),
+			remember = rememberField.getValue();
 
         label.hide();
 
@@ -65,7 +89,7 @@ Ext.define('cis.view.Login', {
 
             label.setHtml('');
 
-            me.fireEvent('signInCommand', me, username, password);
+            me.fireEvent('signInCommand', me, username, password,remember);
 
             usernameField.setValue('');
             passwordField.setValue('');
@@ -79,5 +103,4 @@ Ext.define('cis.view.Login', {
         label.setHtml(message);
         label.show();
     }
-
-})
+});

@@ -13,13 +13,8 @@ Ext.define('mobileV1.view.Main', {
 				store: 'People',
                 styleHtmlContent: true,
                 scrollable: true,
-				itemTpl: '<p style="font-weight:bold;text-align:center;font-size:24px">{f_title}</p>{f_description}',
-				xtype: 'dataview',
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Home'
-                }
+				itemTpl: '{f_title}',
+                xtype: ''
             }, {
                 title: 'My Acc',
                 iconCls: 'user',

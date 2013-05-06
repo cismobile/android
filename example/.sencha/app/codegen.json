@@ -21,80 +21,80 @@
       "source": "app.js.tpl.merge",
       "version": "ca53c51d7615eb8c49850c488900745110fd6a2d",
       "parameters": {
-        "appName": "cis",
+        "appName": "mobileV1",
         "frameworkPath": "touch",
         "appModels": "",
-        "appControllers": "Login,productList",
+        "appControllers": "",
         "appStores": "",
-        "appViews": "CategoryList,Login,Main"
+        "appViews": "Main"
       }
     },
     "app.json": {
       "source": "app.json.tpl.merge",
       "version": "8d16c615fb2f1cb40ed794158d6ac3192a168b97",
       "parameters": {
-        "appName": "cis",
+        "appName": "mobileV1",
         "senchadir": ".sencha",
         "frameworkPath": "touch",
         "frameworkName": "touch",
         "appModels": "",
-        "name": "cis",
+        "name": "mobileV1",
         "library": "core",
         "appControllers": "",
         "appStores": "",
         "appViews": "",
-        "uniqueId": "84d7f020-d88c-44d4-8c4c-ff51a24e5c8a"
+        "uniqueId": "a1808d42-7fc1-4456-8e1a-807e97eb34d0"
       }
     },
     "packager.json": {
       "source": "packager.json.tpl.merge",
       "version": "79175610d9330cc0582cd66bb8103f2e24409b4a",
       "parameters": {
-        "appName": "cis",
+        "appName": "mobileV1",
         "senchadir": ".sencha",
         "frameworkPath": "touch",
         "frameworkName": "touch",
         "appModels": "",
-        "name": "cis",
+        "name": "mobileV1",
         "library": "core",
         "appControllers": "",
         "appStores": "",
         "appViews": "",
-        "uniqueId": "84d7f020-d88c-44d4-8c4c-ff51a24e5c8a"
+        "uniqueId": "a1808d42-7fc1-4456-8e1a-807e97eb34d0"
       }
     },
     "resources/sass/app.scss": {
       "source": "app.scss.tpl.merge",
       "version": "185c5374133b44981799fe044947175520c8917e",
       "parameters": {
-        "appName": "cis",
+        "appName": "mobileV1",
         "senchadir": ".sencha",
         "frameworkPath": "touch",
         "frameworkName": "touch",
         "appModels": "",
-        "name": "cis",
+        "name": "mobileV1",
         "library": "core",
         "appControllers": "",
         "appStores": "",
         "appViews": "",
-        "uniqueId": "84d7f020-d88c-44d4-8c4c-ff51a24e5c8a"
+        "uniqueId": "a1808d42-7fc1-4456-8e1a-807e97eb34d0"
       }
     },
     "resources/sass/config.rb": {
       "source": "config.rb.tpl.merge",
       "version": "e254e92dd21bc9ecb27f3b8251d67dfbc79fa1af",
       "parameters": {
-        "appName": "cis",
+        "appName": "mobileV1",
         "senchadir": ".sencha",
         "frameworkPath": "touch",
         "frameworkName": "touch",
         "appModels": "",
-        "name": "cis",
+        "name": "mobileV1",
         "library": "core",
         "appControllers": "",
         "appStores": "",
         "appViews": "",
-        "uniqueId": "84d7f020-d88c-44d4-8c4c-ff51a24e5c8a"
+        "uniqueId": "a1808d42-7fc1-4456-8e1a-807e97eb34d0"
       }
     }
   }
