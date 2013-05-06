@@ -12,7 +12,7 @@ Ext.define('Sqlite.Connection', {
 	 * @cfg {String} version
 	 * database version. If different than current, use updatedb event to update database
 	 */
-	dbVersion: '1.0',
+	dbVersion: '1.19',
 
 	/**
 	 * @cfg {String} dbDescription
