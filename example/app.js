@@ -50,7 +50,7 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
-    launch: function() {
+    launch: function() {	
 		var db = openDatabase('mobileDB', '1.19', '', 2 * 1024 * 1024);
 		
 		db.transaction(function (tx) {  

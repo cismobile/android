@@ -13,7 +13,7 @@ Ext.define('mobileV1.view.Main', {
 				store: 'People',
                 styleHtmlContent: true,
                 scrollable: true,
-				itemTpl: '<p style="font-weight:bold;text-align:center;font-size:24px">{f_title}</p>{f_description}',
+				itemTpl: '<p style="font-weight:bold;text-align:center;font-size:24px">{f_title}</p><img src="/sdcard/cismobile/GoogleLogo.jpg" width="97%" height="30%">{f_description}',
 				xtype: 'dataview',
                 items: {
                     docked: 'top',

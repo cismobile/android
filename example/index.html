@@ -1,14 +1,12 @@
 <!DOCTYPE HTML>
 <html manifest="" lang="en-US">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <title>mobileV1</title>
     <style type="text/css">
-         /**
-         * Example of an initial loading indicator.
-         * It is recommended to keep this as minimal as possible to provide instant feedback
-         * while other resources are still being loaded for the first time
-         */
         html, body {
             height: 100%;
             background-color: #1985D0
@@ -58,5 +56,8 @@
         <div></div>
         <div></div>
     </div>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
 </body>
 </html>
