@@ -51,11 +51,36 @@ Ext.application({
     },
 
     launch: function() {	
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null); 
+
+		function onRequestFileSystemSuccess(fileSystem) { 
+			var entry = fileSystem.root; 
+			entry.getDirectory("cismobile", {create: true, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail); 
+		}
+
+		var fileTransfer = new FileTransfer();
+		var url = "http://www.media-lemondenumerique.com/upload/images/2013/02/GoogleLogo.jpg";
+		var filePath = "file:///sdcard/cismobile/";
+
+		fileTransfer.download(
+		    url,
+		    filePath + "GoogleLogo.jpg",
+		    function(entry) {
+		        alert("download complete: " + entry.fullPath);
+		    },
+		    function(error) {
+		        alert("download error source " + error.source);
+		        alert("download error target " + error.target);
+		        alert("upload error code" + error.code);
+		    }
+		);
+		
 		var db = openDatabase('mobileDB', '1.19', '', 2 * 1024 * 1024);
 		
 		db.transaction(function (tx) {  
 			//tx.executeSql('Drop table cms_content If EXISTS');
 			tx.executeSql('CREATE TABLE IF NOT EXISTS cms_content (f_id PRIMARY KEY, f_title TEXT,f_description TEXT,f_share_url TEXT,f_type VARCHAR(20),f_subtype VARCHAR(20),f_status VARCHAR(1),f_category_id INT(11),f_deleted TINYINT(4),f_published_date DATETIME,f_unpublished_date DATETIME,f_created_date DATETIME,f_created_by INT(11),f_updated_date DATETIME,f_updated_by INT(11),f_seqno INT(3))');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS cms_location (f_id PRIMARY KEY, f_content_id INT,f_address1 VARCHAR(255),f_address2 VARCHAR(255),f_address3 VARCHAR(255),f_address4 VARCHAR(255),f_latitude REAL,f_longitude REAL,f_tel_o VARCHAR(20),f_fax VARCHAR(20))');
 		});
 
 		var http = new XMLHttpRequest();
