@@ -13,7 +13,7 @@ var tabpanel = Ext.define('mobileV1.view.Main', {
 				store: 'People',
                 styleHtmlContent: true,
                 scrollable: true,
-				itemTpl: '<p style="font-weight:bold;text-align:center;font-size:24px">{f_title}</p><img src="/resources/image/cis.png">{f_description}',
+				itemTpl: '<p style="font-weight:bold;text-align:center;font-size:24px">{f_title}</p><div style="text-align:center"><img src="resources/image/login.png"></div>{f_description}',
 				xtype: 'dataview',
                 items: {
                     docked: 'top',
