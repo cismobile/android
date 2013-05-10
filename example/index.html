@@ -18,7 +18,7 @@
             margin-top: -15px;
             text-align: center;
             width: 100%;
-            height: 30px;
+            height: 300px;
             -webkit-animation-name: appLoadingIndicator;
             -webkit-animation-duration: 0.5s;
             -webkit-animation-iteration-count: infinite;
@@ -26,13 +26,15 @@
         }
 
         #appLoadingIndicator > * {
-            background-color: #FFFFFF;
+			background-color: #FFFFFF;
             display: inline-block;
-            height: 30px;
+            height: 10%;
             -webkit-border-radius: 15px;
             margin: 0 5px;
-            width: 30px;
+            width: 70%;
             opacity: 0.8;
+			padding: 5px 5px 5px 5px;
+			font-size: 18px;
         }
 
         @-webkit-keyframes appLoadingIndicator{
@@ -52,12 +54,7 @@
 </head>
 <body>
     <div id="appLoadingIndicator">
-        <div></div>
-        <div></div>
-        <div></div>
+		<div>Loading</div>
     </div>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
 </body>
 </html>
