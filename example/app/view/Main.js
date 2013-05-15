@@ -1,7 +1,7 @@
 Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
-	fullscreen: true,
+	//fullscreen: true,
     requires: [
             'Ext.TitleBar', 'Ext.field.Select','Ext.field.Slider','Ext.Carousel'
     ],
