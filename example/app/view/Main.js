@@ -13,7 +13,7 @@ Ext.define('calculatorV1.view.Main', {
                 iconCls: 'home',
 				layout: 'vbox', //defines layout inside config
                 styleHtmlContent: true,
-                //scrollable: true,
+                scrollable: true,
 
                 items: [{
                         docked: 'top',
