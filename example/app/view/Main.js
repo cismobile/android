@@ -1,17 +1,17 @@
 Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
-	//fullscreen: true,
     requires: [
-            'Ext.TitleBar', 'Ext.field.Select','Ext.field.Slider','Ext.Carousel'
+            'Ext.TitleBar', 'Ext.field.Select', 'Ext.field.Slider', 'Ext.Carousel'
     ],
+    fullscreen: true,
     config: {
         tabBarPosition: 'bottom',
-		
+
         items: [{
                 title: 'Home',
                 iconCls: 'home',
-				layout: 'vbox', //defines layout inside config
+                layout: 'vbox', //defines layout inside config
                 styleHtmlContent: true,
                 scrollable: true,
 
@@ -22,9 +22,11 @@ Ext.define('calculatorV1.view.Main', {
                     }, {
                         xtype: 'fieldset',
                         title: 'Enrollment',
+                        style: 'margin-top:-10%',
                         items: [{
                                 xtype: 'selectfield',
                                 label: 'Personal Ranking',
+                                labelWidth: '50%',
                                 usePicker: true,
                                 options: [{
                                         text: '50 CV',
@@ -43,6 +45,7 @@ Ext.define('calculatorV1.view.Main', {
                             }, {
                                 xtype: 'selectfield',
                                 label: 'Downline Ranking',
+                                labelWidth: '50%',
                                 usePicker: true,
                                 options: [{
                                         text: '50 CV',
@@ -61,6 +64,7 @@ Ext.define('calculatorV1.view.Main', {
                             }, {
                                 xtype: 'selectfield',
                                 label: 'Types',
+                                labelWidth: '50%',
                                 usePicker: true,
                                 options: [{
                                         text: '1',
@@ -73,155 +77,167 @@ Ext.define('calculatorV1.view.Main', {
                                         value: '3'
                                     }
                                 ]
-                            }
-                        ]
-                    }, {
-                        xtype: 'fieldset',
-                        title: 'Result',
-                        items: [{
-                                xtype: 'sliderfield',
+                            }, {
+								xtype: 'numberfield',
+								label: 'Percentage',
+								labelWidth: '50%',
+                                name: 'percentage',
+								placeHolder: '%',
+                                /*xtype: 'sliderfield',
                                 label: 'Percentage',
                                 value: 50,
                                 minValue: 0,
-                                maxValue: 100
+                                maxValue: 100,
+                                listeners: {
+                                    dragend: function (t, Slider, thumb, value, e, eOpts) {
+                                        alert(value);
+                                    }
+                                }*/
                             }
                         ]
                     }, {
-						xtype: 'carousel',
-						flex: 1,
-						items: [
-							{
-								xtype: 'container',
-								title: 'Week 1',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 1 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 1 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 1 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 2',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 2 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 2 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 2 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 3',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 3 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 3 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 3 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 4',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 4 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 4 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 4 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 5',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 5 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 5 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 5 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 6',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 6 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 6 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 6 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 7',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 7 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 7 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 7 NLB',
-										name: 'nlb'
-								}]
-							},{
-								xtype: 'container',
-								title: 'Week 8',
-								items: [{
-										xtype: 'numberfield',
-										label: 'Week 8 GPB',
-										name: 'gpb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 8 LB',
-										name: 'lb'
-									},{
-										xtype: 'numberfield',
-										label: 'Week 8 NLB',
-										name: 'nlb'
-								}]
-							}
-						]
-				 
-					}
+                        xtype: 'carousel',
+                        flex: 1,
+                        items: [{
+                                xtype: 'container',
+                                title: 'Week 1',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 1 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 1 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 1 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 2',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 2 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 2 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 2 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 3',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 3 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 3 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 3 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 4',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 4 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 4 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 4 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 5',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 5 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 5 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 5 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 6',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 6 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 6 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 6 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 7',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 7 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 7 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 7 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }, {
+                                xtype: 'container',
+                                title: 'Week 8',
+                                items: [{
+                                        xtype: 'numberfield',
+                                        label: 'Week 8 GPB',
+                                        name: 'gpb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 8 LB',
+                                        name: 'lb'
+                                    }, {
+                                        xtype: 'numberfield',
+                                        label: 'Week 8 NLB',
+                                        name: 'nlb'
+                                    }
+                                ]
+                            }
+                        ]
+
+                    }
                 ]
             }, {
                 title: 'Report Sales',
@@ -238,6 +254,8 @@ Ext.define('calculatorV1.view.Main', {
                                 xtype: 'numberfield',
                                 placeHolder: 'CV',
                                 label: 'Repeat',
+                                minValue: 0,
+                                maxValue: 9,
                                 name: 'personal_repeat'
                             }, {
                                 xtype: 'numberfield',
@@ -257,6 +275,13 @@ Ext.define('calculatorV1.view.Main', {
                         ui: 'action',
                         padding: '10px',
                         text: 'Submit'
+                    }, {
+                        xtype: 'button',
+                        itemId: 'cancelButton',
+                        ui: 'cancel',
+                        style: 'margin-top: 10px',
+                        padding: '10px',
+                        text: 'Reset'
                     }
                 ]
             }, {
