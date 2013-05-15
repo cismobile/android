@@ -5,8 +5,8 @@ Ext.define('calculatorV1.view.ResultView', {
         'Ext.TitleBar'
     ],
     config: {
-        tabBarPosition: 'bottom',
 		scrollable: true,
+		styleHtmlContent: true,
         items: [{
 			docked: 'top',
 			xtype: 'titlebar',
@@ -16,15 +16,6 @@ Ext.define('calculatorV1.view.ResultView', {
 				text: 'Back',
 				itemId: 'backButton',
 				align: 'left',
-				handler: function() {
-					var view = Ext.Viewport.animateActiveItem({
-						xtype: 'main'
-					}, {
-						type: 'fade'
-					});
-
-					view.show();
-				}
 			}]
 		},{
 			xtype: 'fieldset',
@@ -33,19 +24,31 @@ Ext.define('calculatorV1.view.ResultView', {
 				{
 					xtype: 'numberfield',
 					label: 'Sales Bonus',
+					labelWidth: '50%',
 					name: 'sales_bonus'
 				},
 				{
 					xtype: 'numberfield',
 					label: 'Unilevel Bonus',
+					labelWidth: '50%',
 					name: 'unilevel_bonus'
 				},
 				{
 					xtype: 'numberfield',
 					label: 'Network Linear',
+					labelWidth: '50%',
 					name: 'network_linear'
 				}
 			]
-		}]
-    }
+		}],
+		listeners: [{
+                delegate: '#backButton',
+                event: 'tap',
+                fn: 'onReportTap'
+            }
+        ]
+    },
+	onReportTap: function(){
+		Ext.getCmp('mainPanel').setActiveItem(1);
+	}
 });

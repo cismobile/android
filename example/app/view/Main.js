@@ -1,13 +1,13 @@
-Ext.define('calculatorV1.view.Main', {
+var tabPanel = Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
     requires: [
             'Ext.TitleBar', 'Ext.field.Select', 'Ext.field.Slider', 'Ext.Carousel'
     ],
-    fullscreen: true,
+    //fullscreen: true,
     config: {
         tabBarPosition: 'bottom',
-
+		id: 'mainPanel',
         items: [{
                 title: 'Home',
                 iconCls: 'home',
@@ -22,7 +22,6 @@ Ext.define('calculatorV1.view.Main', {
                     }, {
                         xtype: 'fieldset',
                         title: 'Enrollment',
-                        style: 'margin-top:-10%',
                         items: [{
                                 xtype: 'selectfield',
                                 label: 'Personal Ranking',
@@ -78,11 +77,6 @@ Ext.define('calculatorV1.view.Main', {
                                     }
                                 ]
                             }, {
-								xtype: 'numberfield',
-								label: 'Percentage',
-								labelWidth: '50%',
-                                name: 'percentage',
-								placeHolder: '%',
                                 /*xtype: 'sliderfield',
                                 label: 'Percentage',
                                 value: 50,
@@ -96,152 +90,21 @@ Ext.define('calculatorV1.view.Main', {
                             }
                         ]
                     }, {
-                        xtype: 'carousel',
-                        flex: 1,
-                        items: [{
-                                xtype: 'container',
-                                title: 'Week 1',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 1 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 1 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 1 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 2',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 2 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 2 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 2 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 3',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 3 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 3 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 3 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 4',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 4 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 4 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 4 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 5',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 5 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 5 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 5 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 6',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 6 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 6 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 6 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 7',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 7 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 7 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 7 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }, {
-                                xtype: 'container',
-                                title: 'Week 8',
-                                items: [{
-                                        xtype: 'numberfield',
-                                        label: 'Week 8 GPB',
-                                        name: 'gpb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 8 LB',
-                                        name: 'lb'
-                                    }, {
-                                        xtype: 'numberfield',
-                                        label: 'Week 8 NLB',
-                                        name: 'nlb'
-                                    }
-                                ]
-                            }
-                        ]
-
-                    }
+						xtype: 'button',
+                        itemId: 'nextButton',
+                        ui: 'action',
+                        padding: '10px',
+                        text: 'Next',
+						handler: function(){
+							
+							//add.show();
+						}
+					}
                 ]
             }, {
                 title: 'Report Sales',
                 iconCls: 'star',
+				styleHtmlContent: true,
                 scrollable: true,
                 items: [{
                         docked: 'top',
@@ -285,24 +148,37 @@ Ext.define('calculatorV1.view.Main', {
                     }
                 ]
             }, {
-                title: 'Testing',
-                hidden: true,
-            }
+				title: 'Result',
+				hidden: true,
+				xtype: 'ResultView'
+            }, {
+				title: 'Enrollment Result',
+				hidden: true,
+				xtype: 'EnrollmentResultView'
+			}
         ],
         listeners: [{
                 delegate: '#reportButton',
                 event: 'tap',
                 fn: 'onReportTap'
-            }
+            },{
+				delegate: '#nextButton',
+                event: 'tap',
+                fn: 'onNextTap'
+			}
         ]
     },
-    onReportTap: function () {
-        var view = Ext.Viewport.animateActiveItem({
+    onReportTap: function () {		
+		this.setActiveItem(2);
+		/*var view = Ext.Viewport.animateActiveItem({
             xtype: 'ResultView'
         }, {
             type: 'fade'
         });
 
-        view.show(); //This is additionally done to fire showAnimation
-    }
+        view.show(); //This is additionally done to fire showAnimation*/
+    },
+	onNextTap: function(){
+		this.setActiveItem(3);
+	}
 });

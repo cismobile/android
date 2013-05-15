@@ -31,7 +31,8 @@ Ext.application({
 
     views: [
         'Main',
-		'ResultView'
+		'ResultView',
+		'EnrollmentResultView'
     ],
 
     icon: {
@@ -57,7 +58,12 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('calculatorV1.view.Main'));
+        //Ext.Viewport.add(Ext.create('calculatorV1.view.Main'));
+		
+		Ext.Viewport.add([{
+                xtype: 'main'
+            } 
+        ]);
     },
 
     onUpdated: function() {
