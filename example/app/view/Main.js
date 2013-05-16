@@ -1,4 +1,4 @@
-var tabPanel = Ext.define('calculatorV1.view.Main', {
+Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
     requires: [
@@ -116,6 +116,7 @@ var tabPanel = Ext.define('calculatorV1.view.Main', {
                         items: [{
                                 xtype: 'numberfield',
                                 placeHolder: 'CV',
+								labelWidth: '50%',
                                 label: 'Repeat',
                                 minValue: 0,
                                 maxValue: 9,
@@ -123,11 +124,13 @@ var tabPanel = Ext.define('calculatorV1.view.Main', {
                             }, {
                                 xtype: 'numberfield',
                                 placeHolder: 'Person - 1 digit',
+								labelWidth: '50%',
                                 label: 'Sponsor',
                                 name: 'personal_sponsor'
                             }, {
                                 xtype: 'textfield',
                                 placeHolder: 'Person',
+								labelWidth: '50%',
                                 label: 'Active Member',
                                 name: 'active_member'
                             }
@@ -179,6 +182,8 @@ var tabPanel = Ext.define('calculatorV1.view.Main', {
         view.show(); //This is additionally done to fire showAnimation*/
     },
 	onNextTap: function(){
+		//Ext.getCmp('enrollmentResult').setStyle('position','absolute');
+		//Ext.getCmp('enrollmentResult').show();
 		this.setActiveItem(3);
 	}
 });

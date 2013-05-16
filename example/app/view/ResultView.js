@@ -25,19 +25,22 @@ Ext.define('calculatorV1.view.ResultView', {
 					xtype: 'numberfield',
 					label: 'Sales Bonus',
 					labelWidth: '50%',
-					name: 'sales_bonus'
+					name: 'sales_bonus',
+					readOnly: true
 				},
 				{
 					xtype: 'numberfield',
 					label: 'Unilevel Bonus',
 					labelWidth: '50%',
-					name: 'unilevel_bonus'
+					name: 'unilevel_bonus',
+					readOnly: true
 				},
 				{
 					xtype: 'numberfield',
 					label: 'Network Linear',
 					labelWidth: '50%',
-					name: 'network_linear'
+					name: 'network_linear',
+					readOnly: true
 				}
 			]
 		}],

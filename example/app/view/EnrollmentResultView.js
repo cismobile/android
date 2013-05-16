@@ -6,7 +6,8 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
     ],
     config: {
         layout: 'vbox', //defines layout inside config
-        scrollable: true,
+        //scrollable: true,
+		id: 'enrollmentResult',
         styleHtmlContent: true,
         items: [{
                 docked: 'top',
@@ -22,8 +23,11 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         maxValue: 100,
                         listeners: {
                             dragend: function (t, Slider, thumb, value, e, eOpts) {
-                                alert(value);
-                            }
+                                this.setLabel(value + ' %');
+                            },
+							change: function(me, Slider, thumb, newValue, oldValue, eOpts){
+								this.setLabel(newValue + ' %');
+							}
                         }
                     }
                 ]
