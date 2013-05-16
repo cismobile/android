@@ -27,7 +27,10 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                             },
 							change: function(me, Slider, thumb, newValue, oldValue, eOpts){
 								this.setLabel(newValue + ' %');
-							}
+							},
+							drag: function(t, Slider, thumb, value, e, eOpts) {
+                                this.setLabel(value + ' %');
+                            }
                         }
                     }
                 ]
