@@ -7,6 +7,7 @@ Ext.define('calculatorV1.view.ResultView', {
     config: {
 		scrollable: true,
 		styleHtmlContent: true,
+		id: 'salesResult',
         items: [{
 			docked: 'top',
 			xtype: 'titlebar',
@@ -52,6 +53,7 @@ Ext.define('calculatorV1.view.ResultView', {
         ]
     },
 	onReportTap: function(){
+		Ext.getCmp('salesResult').hide();
 		Ext.getCmp('mainPanel').setActiveItem(1);
 	}
 });

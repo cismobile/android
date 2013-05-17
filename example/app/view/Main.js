@@ -22,6 +22,7 @@ Ext.define('calculatorV1.view.Main', {
                     }, {
                         xtype: 'fieldset',
                         title: 'Enrollment',
+						itemId: 'enResult',
                         items: [{
                                 xtype: 'selectfield',
                                 label: 'Personal Ranking',
@@ -96,8 +97,7 @@ Ext.define('calculatorV1.view.Main', {
                         padding: '10px',
                         text: 'Next',
 						handler: function(){
-							
-							//add.show();
+							Ext.getCmp('enrollmentResult').show();
 						}
 					}
                 ]
@@ -140,7 +140,10 @@ Ext.define('calculatorV1.view.Main', {
                         itemId: 'reportButton',
                         ui: 'action',
                         padding: '10px',
-                        text: 'Submit'
+                        text: 'Submit',
+						handler: function(){
+							Ext.getCmp('salesResult').show();
+						}
                     }, {
                         xtype: 'button',
                         itemId: 'cancelButton',
@@ -160,7 +163,13 @@ Ext.define('calculatorV1.view.Main', {
 				xtype: 'EnrollmentResultView'
 			}
         ],
-        listeners: [{
+		listeners: {
+			activeitemchange: function(r,value,oldvalue,eOpts){
+				Ext.getCmp('salesResult').hide();
+				Ext.getCmp('enrollmentResult').hide();
+			}
+		}
+        /*listeners: [{
                 delegate: '#reportButton',
                 event: 'tap',
                 fn: 'onReportTap'
@@ -169,21 +178,23 @@ Ext.define('calculatorV1.view.Main', {
                 event: 'tap',
                 fn: 'onNextTap'
 			}
-        ]
-    },
-    onReportTap: function () {		
-		this.setActiveItem(2);
+        ]*/
+    }
+    /*onReportTap: function () {		
+		Ext.getCmp('salesResult').show();
+		//this.setActiveItem(2);
 		/*var view = Ext.Viewport.animateActiveItem({
             xtype: 'ResultView'
         }, {
             type: 'fade'
         });
 
-        view.show(); //This is additionally done to fire showAnimation*/
+        view.show(); //This is additionally done to fire showAnimation
     },
 	onNextTap: function(){
 		//Ext.getCmp('enrollmentResult').setStyle('position','absolute');
 		//Ext.getCmp('enrollmentResult').show();
-		this.setActiveItem(3);
-	}
+		//this.setActiveItem(3);
+		Ext.getCmp('enrollmentResult').show();
+	}*/
 });
