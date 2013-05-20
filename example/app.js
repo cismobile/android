@@ -62,7 +62,7 @@ Ext.application({
 		
 		Ext.Viewport.add([{
                 xtype: 'main'
-            } 
+            }
         ]);
     },
 
