@@ -47,7 +47,7 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
 								eventDrag(value);
                             },
 							change: function(me, Slider, thumb, newValue, oldValue, eOpts){
-								eventDrag(value);
+								eventDrag(newValue);
 							},
 							drag: function(t, Slider, thumb, value, e, eOpts) {
                                 eventDrag(value);
