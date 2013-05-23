@@ -16,6 +16,7 @@ Ext.define('calculatorV1.view.ResultView', {
 			items: [{
 				xtype: 'button',
 				text: 'Back',
+				ui: 'back',
 				itemId: 'backButton',
 				align: 'left',
 			}]
@@ -218,7 +219,7 @@ Ext.define('calculatorV1.view.ResultView', {
         ]
     },
 	onReportTap: function(){
-		Ext.getCmp('salesResult').hide();
+		Ext.getCmp('salesResult').hide({type: 'fadeOut'});
 		Ext.getCmp('mainPanel').setActiveItem(1);
 	}
 });

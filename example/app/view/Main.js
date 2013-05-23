@@ -9,7 +9,7 @@ Ext.define('calculatorV1.view.Main', {
         tabBarPosition: 'bottom',
 		id: 'mainPanel',
         items: [{
-                title: 'Home',
+                title: 'Enrollment',
                 iconCls: 'home',
                 layout: 'vbox', //defines layout inside config
                 styleHtmlContent: true,
@@ -18,14 +18,15 @@ Ext.define('calculatorV1.view.Main', {
                 items: [{
                         docked: 'top',
                         xtype: 'titlebar',
-                        title: 'Home'
+                        title: 'Entrollment'
                     }, {
                         xtype: 'fieldset',
-                        title: 'Enrollment',
+                        //title: 'Enrollment',
 						itemId: 'enResult',
                         items: [{
                                 xtype: 'selectfield',
-                                label: 'Personal Ranking',
+                                label: 'Personal',
+								itemId: 'personal',
                                 labelWidth: '50%',
                                 usePicker: true,
                                 options: [{
@@ -44,7 +45,8 @@ Ext.define('calculatorV1.view.Main', {
                                 ]
                             }, {
                                 xtype: 'selectfield',
-                                label: 'Downline Ranking',
+                                label: 'Downline',
+								itemId: 'downline',
                                 labelWidth: '50%',
                                 usePicker: true,
                                 options: [{
@@ -63,8 +65,9 @@ Ext.define('calculatorV1.view.Main', {
                                 ]
                             }, {
                                 xtype: 'selectfield',
-                                label: 'Types',
+                                label: 'Recruitment',
                                 labelWidth: '50%',
+								itemId: 'recruitment',
                                 usePicker: true,
                                 options: [{
                                         text: '1',
@@ -97,19 +100,69 @@ Ext.define('calculatorV1.view.Main', {
                         padding: '10px',
                         text: 'Next',
 						handler: function(){
-							Ext.getCmp('enrollmentResult').show();
+							//Ext.Viewport.setMasked({xtype:'loadmask',message:'Loading'});
+							var persValue = parseFloat(Ext.ComponentQuery.query('#personal')[0].getValue());
+							var downValue = parseFloat(Ext.ComponentQuery.query('#downline')[0].getValue());
+							var recruitValue = parseFloat(Ext.ComponentQuery.query('#recruitment')[0].getValue());
+							var week1NDSB = 0;
+							var perCV = 0;
+							var gpb1 = 0;
+							
+							week1NDSB = (downValue * recruitValue) * 0.2;
+							 
+							if(persValue != 800){
+								perCV = 0.1;
+							}else{
+								perCV = 0.12
+							}
+							
+							var tmpNode1 = recruitValue - 1;
+							var tmpNode2 = tmpNode1 * recruitValue;
+							var tmpNode3 = tmpNode2 * recruitValue;
+							var tmpNode4 = tmpNode3 * recruitValue;
+							var tmpNode5 = tmpNode4 * recruitValue;
+							var tmpNode6 = tmpNode5 * recruitValue;
+							var tmpNode7 = tmpNode6 * recruitValue;
+							var tmpNode8 = tmpNode7 * recruitValue;
+							
+							gpb1 = ( tmpNode1 * downValue * perCV);
+							
+							/* NDSB Value */
+							Ext.ComponentQuery.query('#ndsb1')[0].setValue(parseFloat(week1NDSB));
+							Ext.ComponentQuery.query('#ndsb2')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb3')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb4')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb5')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb6')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb7')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb8')[0].setValue(parseFloat(0));
+							
+							/* GPB Value */
+							Ext.ComponentQuery.query('#gpb1')[0].setValue(parseFloat(gpb1));
+							Ext.ComponentQuery.query('#gpb2')[0].setValue(parseFloat(tmpNode2 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb3')[0].setValue(parseFloat(tmpNode3 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb4')[0].setValue(parseFloat(tmpNode4 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb5')[0].setValue(parseFloat(tmpNode5 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb6')[0].setValue(parseFloat(tmpNode6 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb7')[0].setValue(parseFloat(tmpNode7 * downValue * perCV));
+							Ext.ComponentQuery.query('#gpb8')[0].setValue(parseFloat(tmpNode8 * downValue * perCV));
+							//setTimeout(function () {            
+								//Ext.Viewport.setMasked(false);
+								Ext.getCmp('enrollmentResult').show({type: 'fadeIn'});
+							//}, 500);
+							//Ext.ComponentQuery.query('#ndsb1')[0].setValue();
 						}
 					}
                 ]
             }, {
-                title: 'Report Sales',
+                title: 'Sales',
                 iconCls: 'star',
 				styleHtmlContent: true,
                 scrollable: true,
                 items: [{
                         docked: 'top',
                         xtype: 'titlebar',
-                        title: 'Report Sales'
+                        title: 'Sales'
                     }, {
                         xtype: 'fieldset',
                         title: 'Personal',
@@ -142,7 +195,7 @@ Ext.define('calculatorV1.view.Main', {
                         padding: '10px',
                         text: 'Submit',
 						handler: function(){
-							Ext.getCmp('salesResult').show();
+							Ext.getCmp('salesResult').show({type: 'fadeIn'});
 						}
                     }, {
                         xtype: 'button',
@@ -165,8 +218,8 @@ Ext.define('calculatorV1.view.Main', {
         ],
 		listeners: {
 			activeitemchange: function(r,value,oldvalue,eOpts){
-				Ext.getCmp('salesResult').hide();
-				Ext.getCmp('enrollmentResult').hide();
+				Ext.getCmp('salesResult').hide({type: 'fadeOut'});
+				Ext.getCmp('enrollmentResult').hide({type: 'fadeOut'});
 			}
 		}
         /*listeners: [{

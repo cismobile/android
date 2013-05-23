@@ -12,10 +12,11 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
         items: [{
                 docked: 'top',
                 xtype: 'titlebar',
-                title: 'Enrollment Result',
+                title: 'Result',
 				items: [{
 					xtype: 'button',
 					text: 'Back',
+					ui: 'back',
 					itemId: 'backEnrollButton',
 					align: 'left',
 				}]
@@ -55,14 +56,12 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb1',
-                                name: 'ndsb1',
 								readOnly: true
                             },{
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb1',
-                                name: 'gpb1',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -86,25 +85,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb2',
-                                name: 'ndsb2',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
                                 itemId: 'gpb2',
-								name: 'gpb2',
 								readOnly: true,
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
 								labelWidth: '50%',
-                                name: 'lb'
+                                name: 'lb',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'NLB',
 								labelWidth: '50%',
-                                name: 'nlb'
+                                name: 'nlb',
+								readOnly: true
                             }
                         ]
                     }, {
@@ -115,23 +114,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb3',
-                                name: 'ndsb3',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+                                itemId: 'gpb3',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
 								labelWidth: '50%',
-                                name: 'lb'
+                                name: 'lb',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'NLB',
 								labelWidth: '50%',
-                                name: 'nlb'
+                                name: 'nlb',
+								readOnly: true
                             }
                         ]
                     }, {
@@ -142,23 +143,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb4',
-                                name: 'ndsb4',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+								itemId: 'gpb4',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
 								labelWidth: '50%',
-                                name: 'lb'
+                                name: 'lb',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'NLB',
 								labelWidth: '50%',
-                                name: 'nlb'
+                                name: 'nlb',
+								readOnly: true
                             }
                         ]
                     }, {
@@ -168,14 +171,14 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 xtype: 'numberfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
-								itemId: 'ndsb1',
-                                name: 'ndsb1',
+								itemId: 'ndsb5',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+								itemId: 'gpb5',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
@@ -195,24 +198,27 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 xtype: 'numberfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
-								itemId: 'ndsb1',
-                                name: 'ndsb1',
+								itemId: 'ndsb6',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+								itemId: 'gpb6',
+                                name: 'gpb',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
 								labelWidth: '50%',
-                                name: 'lb'
+                                name: 'lb',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'NLB',
 								labelWidth: '50%',
-                                name: 'nlb'
+                                name: 'nlb',
+								readOnly: true
                             }
                         ]
                     }, {
@@ -222,24 +228,24 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 xtype: 'numberfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
-								itemId: 'ndsb1',
-                                name: 'ndsb1',
+								itemId: 'ndsb7',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+								itemId: 'gpb7',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
 								labelWidth: '50%',
-                                name: 'lb'
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'NLB',
 								labelWidth: '50%',
-                                name: 'nlb'
+								readOnly: true
                             }
                         ]
                     }, {
@@ -249,14 +255,14 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                                 xtype: 'numberfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
-								itemId: 'ndsb1',
-                                name: 'ndsb1',
+								itemId: 'ndsb8',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'GPB',
 								labelWidth: '50%',
-                                name: 'gpb'
+								itemId: 'gpb8',
+								readOnly: true
                             }, {
                                 xtype: 'numberfield',
                                 label: 'LB',
@@ -288,6 +294,6 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
         Ext.getCmp('mainPanel').setActiveItem(1);
     },
 	onEnrollBackTap: function() {
-		Ext.getCmp('enrollmentResult').hide();
+		Ext.getCmp('enrollmentResult').hide({type: 'fadeOut'});
 	}
 });
