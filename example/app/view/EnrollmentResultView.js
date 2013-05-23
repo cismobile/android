@@ -1,12 +1,25 @@
+var eventDrag = function(value){
+	Ext.ComponentQuery.query('#percentage')[0].setLabel(value + ' %');
+	
+	Ext.ComponentQuery.query('#gpb1')[0].setValue('UBD $' + cdecimal(gpb1Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb2')[0].setValue('UBD $' + cdecimal(gpb2Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb3')[0].setValue('UBD $' + cdecimal(gpb3Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb4')[0].setValue('UBD $' + cdecimal(gpb4Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb5')[0].setValue('UBD $' + cdecimal(gpb5Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb6')[0].setValue('UBD $' + cdecimal(gpb6Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb7')[0].setValue('UBD $' + cdecimal(gpb7Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb8')[0].setValue('UBD $' + cdecimal(gpb8Value * (value / 100),2,',','.'));   
+}
+
 Ext.define('calculatorV1.view.EnrollmentResultView', {
-    extend: 'Ext.Panel',
+    extend: 'Ext.form.Panel',
     xtype: 'EnrollmentResultView',
     requires: [
-            'Ext.TitleBar'
+           'Ext.TitleBar'
     ],
     config: {
         layout: 'vbox', //defines layout inside config
-        //scrollable: true,
+        scrollable: false,
 		id: 'enrollmentResult',
         styleHtmlContent: true,
         items: [{
@@ -25,22 +38,19 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                 items: [{
                         xtype: 'sliderfield',
                         label: 'Percentage',
-                        value: 0,
+                        value: 100,
                         minValue: 0,
                         maxValue: 100,
+						itemId: 'percentage',
                         listeners: {
                             dragend: function (t, Slider, thumb, value, e, eOpts) {
-                                this.setLabel(value + ' %');
-								Ext.ComponentQuery.query('#gpb1')[0].setValue(value);        
-								Ext.ComponentQuery.query('#gpb2')[0].setValue(value);    
+								eventDrag(value);
                             },
 							change: function(me, Slider, thumb, newValue, oldValue, eOpts){
-								this.setLabel(newValue + ' %');
-								Ext.ComponentQuery.query('#gpb1')[0].setValue(value);        
+								eventDrag(value);
 							},
 							drag: function(t, Slider, thumb, value, e, eOpts) {
-                                this.setLabel(value + ' %');
-								Ext.ComponentQuery.query('#gpb1')[0].setValue(value);        
+                                eventDrag(value);
                             }
                         }
                     }
@@ -52,25 +62,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 1',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb1',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb1',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb',
@@ -81,25 +91,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 2',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb2',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
                                 itemId: 'gpb2',
 								readOnly: true,
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb',
@@ -110,25 +120,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 3',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb3',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
                                 itemId: 'gpb3',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb',
@@ -139,25 +149,25 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 4',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb4',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb4',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb',
@@ -168,24 +178,24 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 5',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb5',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb5',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb'
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb'
@@ -195,26 +205,26 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 6',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb6',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb6',
                                 name: 'gpb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb',
@@ -225,24 +235,24 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 7',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb7',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb7',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
 								readOnly: true
@@ -252,24 +262,24 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         xtype: 'fieldset',
                         title: 'Week 8',
                         items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '50%',
 								itemId: 'ndsb8',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '50%',
 								itemId: 'gpb8',
 								readOnly: true
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '50%',
                                 name: 'lb'
                             }, {
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '50%',
                                 name: 'nlb'

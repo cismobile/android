@@ -1,3 +1,18 @@
+var cdecimal = function(value,decPlaces, thouSeparator, decSeparator, currencySymbol) {
+	var n = value,
+	decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+	decSeparator = decSeparator == undefined ? "." : decSeparator,
+	thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
+	currencySymbol = currencySymbol == undefined ? "" : currencySymbol,
+	sign = n < 0 ? "-" : "",
+	i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+	j = (j = i.length) > 3 ? j % 3 : 0;
+	return sign + currencySymbol + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+};
+
+var gpb1Value = 0,gpb2Value = 0,gpb3Value = 0,gpb4Value = 0,gpb5Value = 0,gpb6Value = 0,gpb7Value = 0,gpb8Value = 0;
+
+				
 Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
@@ -28,7 +43,7 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Personal',
 								itemId: 'personal',
                                 labelWidth: '50%',
-                                usePicker: true,
+								usePicker: false,
                                 options: [{
                                         text: '50 CV',
                                         value: '50'
@@ -48,7 +63,7 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Downline',
 								itemId: 'downline',
                                 labelWidth: '50%',
-                                usePicker: true,
+                                usePicker: false,
                                 options: [{
                                         text: '50 CV',
                                         value: '50'
@@ -68,7 +83,7 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Recruitment',
                                 labelWidth: '50%',
 								itemId: 'recruitment',
-                                usePicker: true,
+                                usePicker: false,
                                 options: [{
                                         text: '1',
                                         value: '1'
@@ -128,24 +143,33 @@ Ext.define('calculatorV1.view.Main', {
 							gpb1 = ( tmpNode1 * downValue * perCV);
 							
 							/* NDSB Value */
-							Ext.ComponentQuery.query('#ndsb1')[0].setValue(parseFloat(week1NDSB));
-							Ext.ComponentQuery.query('#ndsb2')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb3')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb4')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb5')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb6')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb7')[0].setValue(parseFloat(0));
-							Ext.ComponentQuery.query('#ndsb8')[0].setValue(parseFloat(0));
+							Ext.ComponentQuery.query('#ndsb1')[0].setValue('UBD $' + cdecimal(week1NDSB,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb2')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb3')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb4')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb5')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb6')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb7')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb8')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
 							
 							/* GPB Value */
-							Ext.ComponentQuery.query('#gpb1')[0].setValue(parseFloat(gpb1));
-							Ext.ComponentQuery.query('#gpb2')[0].setValue(parseFloat(tmpNode2 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb3')[0].setValue(parseFloat(tmpNode3 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb4')[0].setValue(parseFloat(tmpNode4 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb5')[0].setValue(parseFloat(tmpNode5 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb6')[0].setValue(parseFloat(tmpNode6 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb7')[0].setValue(parseFloat(tmpNode7 * downValue * perCV));
-							Ext.ComponentQuery.query('#gpb8')[0].setValue(parseFloat(tmpNode8 * downValue * perCV));
+							gpb1Value = gpb1;
+							gpb2Value = tmpNode2 * downValue * perCV;
+							gpb3Value = tmpNode3 * downValue * perCV;
+							gpb4Value = tmpNode4 * downValue * perCV;
+							gpb5Value = tmpNode5 * downValue * perCV;
+							gpb6Value = tmpNode6 * downValue * perCV;
+							gpb7Value = tmpNode7 * downValue * perCV;
+							gpb8Value = tmpNode8 * downValue * perCV;
+							
+							Ext.ComponentQuery.query('#gpb1')[0].setValue('UBD $' + cdecimal(gpb1,2,',','.'));
+							Ext.ComponentQuery.query('#gpb2')[0].setValue('UBD $' + cdecimal(gpb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb3')[0].setValue('UBD $' + cdecimal(gpb3Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb4')[0].setValue('UBD $' + cdecimal(gpb4Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb5')[0].setValue('UBD $' + cdecimal(gpb5Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb6')[0].setValue('UBD $' + cdecimal(gpb6Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb7')[0].setValue('UBD $' + cdecimal(gpb7Value,2,',','.'));
+							Ext.ComponentQuery.query('#gpb8')[0].setValue('UBD $' + cdecimal(gpb8Value,2,',','.'));
 							//setTimeout(function () {            
 								//Ext.Viewport.setMasked(false);
 								Ext.getCmp('enrollmentResult').show({type: 'fadeIn'});
