@@ -54,8 +54,6 @@ Ext.application({
     },
 
     launch: function() {
-		navigator.splashscreen.hide();
-
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
