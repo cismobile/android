@@ -1,3 +1,7 @@
+var ndsb1Value = 0,ndsb2Value = 0;
+var gpb1Value = 0,gpb2Value = 0,gpb3Value = 0,gpb4Value = 0,gpb5Value = 0,gpb6Value = 0,gpb7Value = 0,gpb8Value = 0;
+var sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0,sum5 = 0,sum6 = 0,sum7 = 0,sum8 = 0;
+
 var cdecimal = function(value,decPlaces, thouSeparator, decSeparator, currencySymbol) {
 	var n = value,
 	decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
@@ -10,8 +14,42 @@ var cdecimal = function(value,decPlaces, thouSeparator, decSeparator, currencySy
 	return sign + currencySymbol + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
 };
 
-var gpb1Value = 0,gpb2Value = 0,gpb3Value = 0,gpb4Value = 0,gpb5Value = 0,gpb6Value = 0,gpb7Value = 0,gpb8Value = 0;
+var calWeekTotal = function(value){
+	sum1 = ndsb1Value + (gpb1Value * (value / 100));
+	sum2 = ndsb2Value + (gpb2Value * (value / 100));
+	sum3 = ndsb2Value + (gpb3Value * (value / 100));
+	sum4 = ndsb2Value + (gpb4Value * (value / 100));
+	sum5 = ndsb2Value + (gpb5Value * (value / 100));
+	sum6 = ndsb2Value + (gpb6Value * (value / 100));
+	sum7 = ndsb2Value + (gpb7Value * (value / 100));
+	sum8 = ndsb2Value + (gpb8Value * (value / 100));
 
+	Ext.ComponentQuery.query('#total1')[0].setValue('UBD $' + cdecimal(sum1,2,',','.'));
+	Ext.ComponentQuery.query('#total2')[0].setValue('UBD $' + cdecimal(sum2,2,',','.'));
+	Ext.ComponentQuery.query('#total3')[0].setValue('UBD $' + cdecimal(sum3,2,',','.'));
+	Ext.ComponentQuery.query('#total4')[0].setValue('UBD $' + cdecimal(sum4,2,',','.'));
+	Ext.ComponentQuery.query('#total5')[0].setValue('UBD $' + cdecimal(sum5,2,',','.'));
+	Ext.ComponentQuery.query('#total6')[0].setValue('UBD $' + cdecimal(sum6,2,',','.'));
+	Ext.ComponentQuery.query('#total7')[0].setValue('UBD $' + cdecimal(sum7,2,',','.'));
+	Ext.ComponentQuery.query('#total8')[0].setValue('UBD $' + cdecimal(sum8,2,',','.'));
+	
+	Ext.ComponentQuery.query('#tot8')[0].setValue('UBD $' + cdecimal( sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8,2,',','.'));
+}
+
+var eventDrag = function(value){
+	Ext.ComponentQuery.query('#percentage')[0].setLabel(value + ' %');
+	
+	Ext.ComponentQuery.query('#gpb1')[0].setValue('UBD $' + cdecimal(gpb1Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb2')[0].setValue('UBD $' + cdecimal(gpb2Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb3')[0].setValue('UBD $' + cdecimal(gpb3Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb4')[0].setValue('UBD $' + cdecimal(gpb4Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb5')[0].setValue('UBD $' + cdecimal(gpb5Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb6')[0].setValue('UBD $' + cdecimal(gpb6Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb7')[0].setValue('UBD $' + cdecimal(gpb7Value * (value / 100),2,',','.'));
+	Ext.ComponentQuery.query('#gpb8')[0].setValue('UBD $' + cdecimal(gpb8Value * (value / 100),2,',','.'));  
+	
+	calWeekTotal(value);
+}
 				
 Ext.define('calculatorV1.view.Main', {
     extend: 'Ext.tab.Panel',
@@ -40,6 +78,7 @@ Ext.define('calculatorV1.view.Main', {
 						itemId: 'enResult',
                         items: [{
                                 xtype: 'selectfield',
+								layout: 'default',
                                 label: 'Personal',
 								itemId: 'personal',
                                 labelWidth: '50%',
@@ -64,6 +103,11 @@ Ext.define('calculatorV1.view.Main', {
 								itemId: 'downline',
                                 labelWidth: '50%',
                                 usePicker: false,
+								listeners: {
+									itemtap: function(){
+										alert('OK');
+									}
+								},
                                 options: [{
                                         text: '50 CV',
                                         value: '50'
@@ -119,11 +163,10 @@ Ext.define('calculatorV1.view.Main', {
 							var persValue = parseFloat(Ext.ComponentQuery.query('#personal')[0].getValue());
 							var downValue = parseFloat(Ext.ComponentQuery.query('#downline')[0].getValue());
 							var recruitValue = parseFloat(Ext.ComponentQuery.query('#recruitment')[0].getValue());
-							var week1NDSB = 0;
 							var perCV = 0;
 							var gpb1 = 0;
 							
-							week1NDSB = (downValue * recruitValue) * 0.2;
+							ndsb1Value = (downValue * recruitValue) * 0.2;
 							 
 							if(persValue != 800){
 								perCV = 0.1;
@@ -143,14 +186,14 @@ Ext.define('calculatorV1.view.Main', {
 							gpb1 = ( tmpNode1 * downValue * perCV);
 							
 							/* NDSB Value */
-							Ext.ComponentQuery.query('#ndsb1')[0].setValue('UBD $' + cdecimal(week1NDSB,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb2')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb3')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb4')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb5')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb6')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb7')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
-							Ext.ComponentQuery.query('#ndsb8')[0].setValue('UBD $' + cdecimal(0,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb1')[0].setValue('UBD $' + cdecimal(ndsb1Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb2')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb3')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb4')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb5')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb6')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb7')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#ndsb8')[0].setValue('UBD $' + cdecimal(ndsb2Value,2,',','.'));
 							
 							/* GPB Value */
 							gpb1Value = gpb1;
@@ -170,6 +213,18 @@ Ext.define('calculatorV1.view.Main', {
 							Ext.ComponentQuery.query('#gpb6')[0].setValue('UBD $' + cdecimal(gpb6Value,2,',','.'));
 							Ext.ComponentQuery.query('#gpb7')[0].setValue('UBD $' + cdecimal(gpb7Value,2,',','.'));
 							Ext.ComponentQuery.query('#gpb8')[0].setValue('UBD $' + cdecimal(gpb8Value,2,',','.'));
+							
+							/* Total */
+							/*Ext.ComponentQuery.query('#total1')[0].setValue('UBD $' + cdecimal( ndsb1Value + gpb1Value,2,',','.'));
+							Ext.ComponentQuery.query('#total2')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb2Value,2,',','.'));
+							Ext.ComponentQuery.query('#total3')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb3Value,2,',','.'));
+							Ext.ComponentQuery.query('#total4')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb4Value,2,',','.'));
+							Ext.ComponentQuery.query('#total5')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb5Value,2,',','.'));
+							Ext.ComponentQuery.query('#total6')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb6Value,2,',','.'));
+							Ext.ComponentQuery.query('#total7')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb7Value,2,',','.'));
+							Ext.ComponentQuery.query('#total8')[0].setValue('UBD $' + cdecimal( ndsb2Value + gpb8Value,2,',','.'));*/
+							
+							calWeekTotal(100);
 							//setTimeout(function () {            
 								//Ext.Viewport.setMasked(false);
 								Ext.getCmp('enrollmentResult').show({type: 'fadeIn'});
