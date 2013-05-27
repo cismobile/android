@@ -82,8 +82,9 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Personal',
 								itemId: 'personal',
                                 labelWidth: '50%',
-								usePicker: false,
-                                options: [{
+								usePicker: true,
+                                floatingCls: 'width:100px;height:100px',
+								options: [{
                                         text: '50 CV',
                                         value: '50'
                                     }, {
@@ -102,7 +103,7 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Downline',
 								itemId: 'downline',
                                 labelWidth: '50%',
-                                usePicker: false,
+                                usePicker: true,
 								listeners: {
 									itemtap: function(){
 										alert('OK');
@@ -127,7 +128,7 @@ Ext.define('calculatorV1.view.Main', {
                                 label: 'Recruitment',
                                 labelWidth: '50%',
 								itemId: 'recruitment',
-                                usePicker: false,
+                                usePicker: true,
                                 options: [{
                                         text: '1',
                                         value: '1'
