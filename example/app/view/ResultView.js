@@ -24,9 +24,11 @@ Ext.define('calculatorV1.view.ResultView', {
                 xtype: 'carousel',
                 flex: 1,
                 items: [{
-                        xtype: 'fieldset',
-                        title: 'Week 1',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 1',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -44,12 +46,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 2',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 2',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -67,12 +71,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 3',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 3',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -90,12 +96,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 4',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 4',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -113,12 +121,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 5',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 5',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -136,12 +146,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 6',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 6',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -159,12 +171,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 7',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 7',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -182,12 +196,14 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }, {
-                        xtype: 'fieldset',
-                        title: 'Week 8',
+                        xtype: 'container',
                         items: [{
+							xtype: 'fieldset',
+							title: 'Week 8',
+							items: [{
                                 xtype: 'numberfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
@@ -205,8 +221,8 @@ Ext.define('calculatorV1.view.ResultView', {
 								labelWidth: '50%',
 								name: 'network_linear',
 								readOnly: true
-                            }
-                        ]
+                            }]
+						}]
                     }
                 ]
             }
