@@ -72,10 +72,7 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
 									this.setValue(tmpValue);
 								}
 								eventDrag(tmpValue);*/
-							},
-							drag: function(t, Slider, thumb, value, e, eOpts) {
-								Ext.ComponentQuery.query('#percentage')[0].setLabel(value + ' %');
-                            }
+							}
                         }
                     },{
 						xtype: 'textfield',
