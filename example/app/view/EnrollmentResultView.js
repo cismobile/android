@@ -14,6 +14,7 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                 docked: 'top',
                 xtype: 'titlebar',
                 title: 'Result',
+                style: 'position:obsulate;z-index:99;',
 				items: [{
 					xtype: 'button',
 					text: 'Back',

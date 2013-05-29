@@ -29,16 +29,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 1',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales1',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni1',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -54,16 +54,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 2',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales2',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni2',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -79,16 +79,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 3',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales3',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni3',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -104,16 +104,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 4',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales4',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni4',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -129,16 +129,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 5',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales5',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni5',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -154,16 +154,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 6',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales6',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni6',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -179,16 +179,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 7',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales7',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni7',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',
@@ -204,16 +204,16 @@ Ext.define('calculatorV1.view.ResultView', {
 							xtype: 'fieldset',
 							title: 'Week 8',
 							items: [{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Sales Bonus',
 								labelWidth: '50%',
-								name: 'sales_bonus',
+								itemId: 'sales8',
 								readOnly: true
                             },{
-                                xtype: 'numberfield',
+                                xtype: 'textfield',
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
-								name: 'unilevel_bonus',
+								itemId: 'uni8',
 								readOnly: true
                             }, {
                                 xtype: 'numberfield',

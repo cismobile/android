@@ -62,7 +62,7 @@ Ext.application({
         // Initialize the main view
         //Ext.Viewport.add(Ext.create('calculatorV1.view.Main'));
 		
-		Ext.Viewport.add([{
+		var view = Ext.Viewport.add([{
                 xtype: 'main'
             }
         ]);
