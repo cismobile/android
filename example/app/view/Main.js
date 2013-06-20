@@ -575,7 +575,7 @@ Ext.define('testingV2.view.Main', {
 			style: 'font-size:16.5px',	
             items: [{
                     title: "Enrollment",
-					style: 'text-transform: capitalize;',
+					style: 'text-transform: none;',
                     iconCls: "home",
                     layout: 'vbox',
                     items: [{
@@ -584,6 +584,7 @@ Ext.define('testingV2.view.Main', {
                             flex: 1,
                             items: [{
                                     title: 'Enrollment',
+									style: 'text-transform: none;',
                                     styleHtmlContent: true,
                                     //scrollable: false,
                                     items: [{
@@ -808,12 +809,14 @@ Ext.define('testingV2.view.Main', {
                     title: "Repeat Sales",
                     iconCls: "star",
                     layout: 'vbox',
+					style: 'text-transform: none;',
                     items: [{
                             xtype: 'navigationview',
                             id: "sales",
                             flex: 1,
                             items: [{
                                     title: 'Repeat Sales',
+									style: 'text-transform: none;',
                                     styleHtmlContent: true,
                                     //scrollable: false,
                                     items: [{
