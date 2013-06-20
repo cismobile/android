@@ -16,23 +16,29 @@
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'calculatorV1': 'app'
+    'testingV2': 'app'
 });
 //</debug>
 
 Ext.application({
-    name: 'calculatorV1',
+    name: 'testingV2',
 
     requires: [
         'Ext.MessageBox',
+		'Ext.TitleBar',
+		'Ext.navigation.View',
 		'Ext.form.FieldSet',
-		'Ext.field.Number'
+		'Ext.field.Select',
+		'Ext.field.Number',
+		'Ext.field.Spinner',
+		'Ext.field.Slider',
+		'Ext.carousel.Carousel'
     ],
 
     views: [
         'Main',
-		'ResultView',
-		'EnrollmentResultView'
+		'EnrollmentResultView',
+		'ResultView'
     ],
 
     icon: {
@@ -54,18 +60,22 @@ Ext.application({
     },
 
     launch: function() {
-		navigator.splashscreen.hide();
-
         // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
+        //Ext.fly('splashLoader').destroy();
 
         // Initialize the main view
-        //Ext.Viewport.add(Ext.create('calculatorV1.view.Main'));
+		//Ext.Viewport.setMasked({xtype:'loadmask',message:'Loading'});
 		
-		var view = Ext.Viewport.add([{
-                xtype: 'main'
-            }
-        ]);
+		setTimeout(function () {            
+			//Ext.Viewport.setMasked(false);
+			Ext.fly('splashLoader').destroy();
+				Ext.Viewport.add([{
+						xtype: 'main'
+					},{
+						xtype: ''
+					}
+				]);
+		}, 500);
     },
 
     onUpdated: function() {

@@ -1,28 +1,15 @@
-Ext.define('calculatorV1.view.EnrollmentResultView', {
+Ext.define('testingV2.view.EnrollmentResultView', {
     extend: 'Ext.form.Panel',
     xtype: 'EnrollmentResultView',
-    requires: [
-           'Ext.TitleBar'
-    ],
+
     config: {
         layout: 'vbox', //defines layout inside config
-        scrollable: false,
+        scrollable: '50%',
 		id: 'enrollmentResult',
         styleHtmlContent: true,
-		height: '110%',
+		title: 'Result',
+		style: 'font-size:16.5px',	
         items: [{
-                docked: 'top',
-                xtype: 'titlebar',
-                title: 'Result',
-                style: 'position:obsulate;z-index:99;',
-				items: [{
-					xtype: 'button',
-					text: 'Back',
-					ui: 'back',
-					itemId: 'backEnrollButton',
-					align: 'left',
-				}]
-            }, {
                 xtype: 'fieldset',
                 items: [{
                         xtype: 'sliderfield',
@@ -86,79 +73,102 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
             }, {
                 xtype: 'carousel',
                 flex: 1,
-				style: 'margin-top:-7%',
                 items: [{
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 1',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb1',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             },{
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb1',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank1',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb',
-								readOnly: true
+                                itemId: 'lb1',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb',
-								readOnly: true
+                                itemId: 'nlb1',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total1',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 2',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb2',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
                                 itemId: 'gpb2',
 								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank2',
+								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb',
-								readOnly: true
+                                itemId: 'lb2',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb',
-								readOnly: true
+                                itemId: 'nlb2',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total2',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
@@ -166,6 +176,7 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
                         title: 'Week 3',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 3',
 							items: [{
                                 xtype: 'textfield',
@@ -181,223 +192,282 @@ Ext.define('calculatorV1.view.EnrollmentResultView', {
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank3',
+								readOnly: true
+                            }, {
+                                xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb',
-								readOnly: true
+                                itemId: 'lb3',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb',
-								readOnly: true
+                                itemId: 'nlb3',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total3',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 4',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb4',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb4',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank4',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb',
-								readOnly: true
+                                itemId: 'lb4',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb',
-								readOnly: true
+                                itemId: 'nlb4',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total4',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 5',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb5',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb5',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank5',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb'
+                                itemId: 'lb5',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb'
+                                itemId: 'nlb5',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total5',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 6',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb6',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb6',
                                 name: 'gpb',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank6',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb',
-								readOnly: true
+                                itemId: 'lb6',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb',
-								readOnly: true
+                                itemId: 'nlb6',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total6',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 7',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb7',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb7',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank7',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-								readOnly: true
+								readOnly: true,
+								itemId: 'lb7',
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-								readOnly: true
+								itemId: 'nlb7',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total7',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }, {
                         xtype: 'container',
                         items: [{
 							xtype: 'fieldset',
+							style: 'margin-top:-15px;',
 							title: 'Week 8',
 							items: [{
                                 xtype: 'textfield',
                                 label: 'NDSB',
 								labelWidth: '33%',
 								itemId: 'ndsb8',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'GPB',
 								labelWidth: '33%',
 								itemId: 'gpb8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+                                label: 'Ranking',
+								labelWidth: '33%',
+                                itemId: 'rank8',
 								readOnly: true
                             }, {
                                 xtype: 'textfield',
                                 label: 'LB',
 								labelWidth: '33%',
-                                name: 'lb'
+                                itemId: 'lb8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
                                 xtype: 'textfield',
                                 label: 'NLB',
 								labelWidth: '33%',
-                                name: 'nlb'
+                                itemId: 'nlb8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
                             }, {
 								xtype: 'textfield',
                                 label: 'Total',
 								labelWidth: '33%',
                                 itemId: 'total8',
-								readOnly: true
+								readOnly: true,
+								value: 'UBD $ 0.00'
 							}]
 						}]
                     }
                 ]
             }
-        ],
-        listeners: [{
-                delegate: '#backButton',
-                event: 'tap',
-                fn: 'onReportTap'
-            },{
-				delegate: '#backEnrollButton',
-                event: 'tap',
-                fn: 'onEnrollBackTap'
-			}
         ]
-    },
-    onReportTap: function () {
-        Ext.getCmp('mainPanel').setActiveItem(1);
-    },
-	onEnrollBackTap: function() {
-		Ext.getCmp('enrollmentResult').hide({type: 'fadeOut'});
-	}
+    }
 });
