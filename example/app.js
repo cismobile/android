@@ -62,7 +62,7 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         //Ext.fly('splashLoader').destroy();
-		navigator.splashscreen.hide();
+		
         // Initialize the main view
 		//Ext.Viewport.setMasked({xtype:'loadmask',message:'Loading'});
 		
