@@ -572,7 +572,7 @@ Ext.define('testingV2.view.Main', {
 
         config: {
             tabBarPosition: 'bottom',
-			style: 'font-size:16.5px',	
+			style: 'font-size:16.5px;text-transform: none;',	
             items: [{
                     title: "Enrollment",
 					style: 'text-transform: none;',
