@@ -85,8 +85,7 @@ Ext.define('testingV2.view.ResultView', {
 								label: 'Unilevel Bonus',
 								labelWidth: '50%',
 								itemId: 'uni2',
-								readOnly: true,
-								value: 'UBD $ 0.00'
+								readOnly: true
                             }, {
                                 xtype: 'textfield',
 								label: 'Network Linear',
@@ -274,6 +273,41 @@ Ext.define('testingV2.view.ResultView', {
 								label: 'Total',
 								labelWidth: '50%',
 								itemId: 'sales_tot7',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+							}]
+						}]
+                    }, {
+                        xtype: 'container',
+                        items: [{
+							xtype: 'fieldset',
+							title: 'Week 8',
+							items: [{
+                                xtype: 'textfield',
+								label: 'Sales Bonus',
+								labelWidth: '50%',
+								itemId: 'sales8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            },{
+                                xtype: 'textfield',
+								label: 'Unilevel Bonus',
+								labelWidth: '50%',
+								itemId: 'uni8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            }, {
+                                xtype: 'textfield',
+								label: 'Network Linear',
+								labelWidth: '50%',
+								itemId: 'net8',
+								readOnly: true,
+								value: 'UBD $ 0.00'
+                            },{
+								xtype: 'textfield',
+								label: 'Total',
+								labelWidth: '50%',
+								itemId: 'sales_tot8',
 								readOnly: true,
 								value: 'UBD $ 0.00'
 							}]
