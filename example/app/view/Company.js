@@ -36,7 +36,8 @@ Ext.define('mobileV1.view.Company', {
 						storeLanguage(e.data.f_code);
 						
 						localStorage.companyid = e.data.f_id;
-						
+						localStorage.pricecode = e.data.f_price_code;
+						alert(localStorage.pricecode);
 						var view = Ext.Viewport.animateActiveItem({xtype: 'languageview'},{});
 						view.show();
 						

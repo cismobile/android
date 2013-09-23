@@ -10,14 +10,13 @@ Ext.define('mobileV1.view.ProductDetails', {
 			iconCls: 'star',
 			layout: 'vbox',
 			items: [{
-				xtype: 'dataview',
+				xtype: 'image',
 				height: 210,
 				width: '100%',
 				padding: 5,
 				inline: {wrap:false},
 				scrollable: 'horizontal',
 				store: 'ProductDetailImages',
-				inline: {wrap: false},
 				itemTpl: imgProDetailsUrl
 			},{
 				xtype: 'dataview',
@@ -26,7 +25,7 @@ Ext.define('mobileV1.view.ProductDetails', {
 				padding: 10,
 				flex: 2,
 				store: 'proDescription',
-				itemTpl: '{description}'
+				itemTpl: '<hr width=100%></hr><h3 style="text-align:center">{name}</br></br>Price: {products_price}</h3><hr width=100%></hr>{description}'
 			}]
 		}
 });

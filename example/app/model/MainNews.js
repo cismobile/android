@@ -11,7 +11,10 @@ Ext.define('mobileV1.model.MainNews', {
 		{ name: 'f_name',type: 'string'},
 		{ name: 'f_code',type: 'string'},
 		{ name: 'created_date',type: 'string'},
-		{ name: 'f_created_date',type: 'string'}
+		{ name: 'f_created_date',type: 'string'},
+		{ name: 'f_price_code',type: 'string'},
+		{ name: 'products_price',type: 'string'},
+		{ name: 'name',type: 'string'}
     ]
   }
   

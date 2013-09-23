@@ -3,7 +3,6 @@ Ext.define('mobileV1.view.Login', {
     xtype: 'loginview',
     id: 'login',
     requires: [
-		'Ext.device.Connection',
 		'Ext.form.FieldSet', 
 		'Ext.form.Password', 
 		'Ext.Label', 
@@ -69,7 +68,7 @@ Ext.define('mobileV1.view.Login', {
 	        	
         	},
         	handler: function(button, event) {
-        		if(Ext.device.Connection.isOnline() === true){
+        		//if(Ext.device.Connection.isOnline() === true){
         			
         			var username = Ext.ComponentQuery.query('#userNameTextField')[0].getValue();
         			var password = Ext.ComponentQuery.query('#passwordTextField')[0].getValue();
@@ -158,9 +157,9 @@ Ext.define('mobileV1.view.Login', {
         			}
         			http.send(params);
         			
-        		}else{
-        			Ext.Msg.alert('No Internet Connection');
-        		}
+        		//}else{
+        			//Ext.Msg.alert('No Internet Connection');
+        		//}
         	}
         
         },{

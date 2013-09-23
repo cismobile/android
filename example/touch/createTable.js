@@ -155,7 +155,7 @@ var storeCompanyList = function(){
 						var tmpR = eval("(" + cHttp.responseText + ")");
 						db.transaction(function (tx) {
 							for(var a = 0;a < tmpR.length;a++){
-								tx.executeSql("INSERT INTO cms_country (f_id,f_company_code,f_name,f_code,f_type) VALUES (?,?,?,?,?)",[tmpR[a].f_id,tmpR[a].f_company_code,tmpR[a].f_name,tmpR[a].f_code,tmpR[a].f_type]);
+								tx.executeSql("INSERT INTO cms_country (f_id,f_company_code,f_name,f_code,,f_price_code,f_type) VALUES (?,?,?,?,?)",[tmpR[a].f_id,tmpR[a].f_company_code,tmpR[a].f_name,tmpR[a].f_code,tmpR[a].f_price_code,tmpR[a].f_type]);
 							}
 						},function(){},function(){});
 						Ext.getStore('CompanyStore').setData(tmpR);

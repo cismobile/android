@@ -11,6 +11,7 @@ Ext.define('mobileV1.model.ProductSelectSubCategory', {
 		{ name: 'f_filename',type:'string' },
 		{ name: 'product_skus',type: 'string'},
 		{ name: 'description',type: 'string'},
+		{ name: 'products_price',type: 'string'}
     ]
   }
   

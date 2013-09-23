@@ -1,10 +1,10 @@
 var sysPath = "http://59.188.15.246/cni_isp2_india_new/index.php";
 var imgPath = "http://59.188.15.246/cni_isp2_india_new/";
-var imagePath = "http://src.sencha.io/x50/x50/"+imgPath+"/images/cms/originals/";
+var imagePath = "http://src.sencha.io/"+imgPath+"/images/cms/originals/";
 var imageSubPath = "http://src.sencha.io/x50/x50/"+imgPath;
 var imageLocationPath = "http://src.sencha.io/x50/"+imgPath+"images/cms/originals/";
 var imageNewsPath = "http://src.sencha.io/x50/x50/"+imgPath+"images/cms/originals/"; 
-var imageProductPath = "http://src.sencha.io/x50/x50/"+imgPath; 
+var imageProductPath = "http://src.sencha.io/"+imgPath; 
 var emptyImg = "<img style='margin-left:5px;margin-right:5x;' height='200' class='imageSetting' src='resources/image/cni_empty2.jpg'></img>";
 var imgProUrl = '<img id="{f_category_id}" style="" src="'+imagePath+'{f_filename}"><p style="position:absolute; background-color:white; filter:alpha(opacity=60); opacity:.6;width:100%;height:12%;"><span style="color:black; filter:alpha(opacity=100); opacity:1;font-size:38px;padding:10px;font-family:bold">{f_title}</span></p></img>';
 var imgNewsUrl = '<img style="margin-left:5px;margin-right:5x;" height="200" class="imageSetting" src="'+imageNewsPath+'{f_filename}"></img>';
@@ -57,6 +57,10 @@ Ext.application({
 		'Navigation',
 		'Language',
 		'Company',
+		'Main',
+		'Home',
+		'Product',
+		'Location',
 		'Profile',
 		'Summary',
 		'History',
@@ -65,13 +69,7 @@ Ext.application({
 		'Withdraw',
 		'Pdfviewer',
 		'User',
-		'Main',
-		'Home',
 		'Login',
-		'AfterLogin',
-		'Product',
-		'Location',
-		'Point',
 		'News',
 		'MoreNews',
 		'SelectLocation',
@@ -81,7 +79,7 @@ Ext.application({
 		'ProductDetails',
 		'ProductSubCategory',
 		'ProductLastCategory',
-		'EmptyData'
+		//'EmptyData'
 	],
 
 	controllers: [
