@@ -1,0 +1,152 @@
+$base_color: #696969;
+$active_color: blue;
+$list-pressed-color: #989898;
+$list-active-color: #989898;
+$font-family: Helvetica, sans-serif;
+
+@import 'sencha-touch/default/all';
+
+// You may remove any of the following modules that you
+// do not use in order to create a smaller css file.
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-carousel;
+@include sencha-form;
+@include sencha-msgbox;
+
+// Your custom code goes here...
+
+@include pictos-iconmask('cisHome');
+@include pictos-iconmask('cisProduct');
+@include pictos-iconmask('cisLocation');
+@include pictos-iconmask('cisService');
+//@include pictos-iconmask('cisBackBtn');
+//@include sencha-list-paging;
+
+body{
+	background-color:white;
+}
+
+.myCenteredImage {
+    width: 100% !important;
+}
+
+.x-list-item-body {
+	border: 0px;
+}
+
+.x-list .x-list-disclosure {
+	-webkit-mask: none;
+	-webkit-mask-image: url('../../touch/resources/themes/images/default/pictos/code3.png') !important;
+	-webkit-mask-size: 36px 36px;
+	width: 36px;
+	height: 36px;
+	//margin-top: 40px;
+}
+
+.myTop .x-dock.x-dock-horizontal > .x-dock-item.x-unsized{
+	margin-top: 23px;
+}
+
+.x-button-icon.back {
+	background-image: url('../../touch/resources/themes/images/default/pictos/cisBackBtn.png');
+}
+
+.dataview-item{
+   width : 33.33%;
+   height : 50%;
+   border-right: 0px solid #000;
+   border-bottom: 1px solid #59535E;
+   float:left;  
+   padding:2px;
+}
+
+.x-title .x-innerhtml{
+	font-size: 20px;
+	color: red;
+}
+
+.listCountry{
+	font-size: 16px;
+	color: white;
+}
+
+.myList .x-list-item  .x-list-item-body{
+    min-height: 0.5em !important;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+#loading {
+    color: #9eb2cd;
+    font-size: 120%;
+    position: absolute;
+    width: 110px;
+    left: 50%;
+    margin: 75% 0 0 -30px;
+    .x-loading-spinner {
+        font-size: 160%;
+        margin: -27px 0 0 -45px;
+    }
+}
+
+#splashLoader {
+    background: url(../images/splashimg.png) no-repeat center 25%;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.x-title {
+    font-weight: normal;
+}
+
+.imageSetting{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:#E3E1E3;
+	//-webkit-box-shadow: #B3B3B3 18px 18px 18px;
+	//-moz-box-shadow: #B3B3B3 18px 18px 18px; 
+	//box-shadow: #B3B3B3 18px 18px 18px;
+}
+
+.loginField{
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.passwordField{
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.textFieldRoundBorder{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.mainTitleBar{
+	font-size: 20px;
+	background-color: #cccccc;
+	height: 55px;
+}
